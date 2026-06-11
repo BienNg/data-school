@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Data School — Künstliche Intelligenz lernen. Kostenlos.</title>
-<meta name="description" content="KI- und Daten-Weiterbildung mit Bildungsgutschein, Jobcenter-Förderung oder Qualifizierungschancengesetz. 100% förderbar. Jetzt kostenloses Beratungsgespräch buchen.">
+<meta name="description" content="KI- und Daten-Weiterbildung mit Bildungsgutschein, Jobcenter-Förderung oder Qualifizierungschancengesetz. Werde Data Analyst, Data Scientist oder Data Engineer — 100% förderbar. Jetzt kostenloses Beratungsgespräch buchen.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -261,6 +261,15 @@
     transition: text-decoration-color 0.25s ease;
   }
   .hero-secondary:hover { text-decoration-color: var(--orange); }
+  .hero-reassure {
+    margin-top: 28px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13.5px;
+    color: var(--text-light);
+  }
+  .hero-reassure svg { flex-shrink: 0; }
   .scroll-indicator {
     position: absolute;
     bottom: 32px;
@@ -325,6 +334,15 @@
     color: var(--text-muted);
     margin-top: 20px;
   }
+  .section-head.left { text-align: left; margin: 0 0 48px; }
+  .section-overline {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 18px;
+  }
 
   /* ============ VALUE PROPS ============ */
   .value { background: var(--gray-bg); }
@@ -373,9 +391,9 @@
   .steps { background: var(--white); }
   .steps-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 48px;
-    max-width: 1100px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 36px;
+    max-width: 1200px;
     margin: 0 auto;
     position: relative;
   }
@@ -383,8 +401,8 @@
     content: '';
     position: absolute;
     top: 44px;
-    left: 16%;
-    right: 16%;
+    left: 12%;
+    right: 12%;
     height: 2px;
     background: linear-gradient(90deg, transparent, rgba(237,113,23,0.35) 15%, rgba(237,113,23,0.35) 85%, transparent);
     z-index: 0;
@@ -423,7 +441,8 @@
   }
 
   /* ============ COURSES ============ */
-  .courses { background: var(--gray-bg); }
+  .courses { background: var(--white); }
+  .courses .course-card { border: 1px solid rgba(29,29,31,0.07); }
   .courses-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -507,6 +526,271 @@
     transition: color 0.25s ease;
   }
   .courses-more a:hover { color: var(--orange); }
+
+  /* ============ CAREER PATH ============ */
+  .path { background: var(--gray-bg); }
+  .path-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .path-card {
+    background: var(--white);
+    border-radius: var(--radius-card);
+    padding: 40px 30px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .path-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 48px rgba(29,29,31,0.12);
+  }
+  .path-card.featured { background: var(--dark); }
+  .path-level {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #C25A0E;
+    margin-bottom: 14px;
+  }
+  .path-card.featured .path-level { color: var(--orange-bright); }
+  .path-card h3 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    margin-bottom: 6px;
+  }
+  .path-card.featured h3 { color: var(--white); }
+  .path-dur { font-size: 13.5px; font-weight: 500; color: var(--text-muted); margin-bottom: 20px; }
+  .path-card.featured .path-dur { color: var(--text-light); }
+  .path-card ul { list-style: none; }
+  .path-card li {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-muted);
+    padding: 4px 0 4px 18px;
+    position: relative;
+  }
+  .path-card li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 12px;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--orange);
+  }
+  .path-card.featured li { color: var(--text-light); }
+  .path-badge {
+    position: absolute;
+    top: -13px; left: 30px;
+    background: var(--orange);
+    color: var(--dark);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 999px;
+  }
+  .path-foot {
+    text-align: center;
+    margin-top: 52px;
+    font-size: 16px;
+    color: var(--text-muted);
+  }
+  .path-foot strong { color: var(--text); font-weight: 600; }
+
+  /* ============ METHOD ============ */
+  .method { background: var(--gray-bg); }
+  .method-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 72px;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .method-list { display: flex; flex-direction: column; gap: 30px; }
+  .method-row { display: flex; gap: 20px; align-items: flex-start; }
+  .method-icon {
+    width: 52px; height: 52px;
+    border-radius: 15px;
+    background: var(--dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .method-icon svg { width: 24px; height: 24px; }
+  .method-row h3 { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 6px; }
+  .method-row p { font-size: 15.5px; line-height: 1.6; color: var(--text-muted); }
+  .m-card {
+    background: var(--white);
+    border-radius: var(--radius-card);
+    padding: 36px 32px;
+    box-shadow: 0 24px 48px rgba(29,29,31,0.1);
+  }
+  .m-card-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+  .m-bubble-q {
+    background: var(--dark);
+    color: var(--white);
+    padding: 16px 20px;
+    border-radius: 18px 18px 18px 6px;
+    font-size: 15.5px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+  .m-arrow {
+    text-align: center;
+    font-size: 13px;
+    color: var(--orange);
+    font-weight: 700;
+    margin: 18px 0;
+  }
+  .m-chip {
+    display: inline-block;
+    background: rgba(237,113,23,0.1);
+    color: #C25A0E;
+    font-size: 13.5px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 999px;
+    margin: 0 6px 8px 0;
+  }
+  .m-card-foot {
+    font-size: 13.5px;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(29,29,31,0.08);
+  }
+
+  /* ============ FUNDING ============ */
+  .funding { background: var(--white); }
+  .funding-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .frow {
+    display: flex;
+    gap: 18px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(29,29,31,0.08);
+  }
+  .frow:last-child { border-bottom: none; }
+  .frow .n {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--orange);
+    color: var(--dark);
+    font-weight: 700;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .frow h3 { font-size: 17px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 3px; }
+  .frow p { font-size: 15px; line-height: 1.55; color: var(--text-muted); }
+  .funding-card {
+    background: var(--dark);
+    border-radius: var(--radius-card);
+    padding: 48px 40px;
+  }
+  .fc-strike {
+    font-size: 14px;
+    color: var(--text-light);
+    text-decoration: line-through;
+    margin-bottom: 8px;
+  }
+  .fc-price {
+    font-size: 64px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--orange);
+    line-height: 1.05;
+  }
+  .fc-price small {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0;
+    color: var(--text-light);
+  }
+  .fc-list { list-style: none; margin: 30px 0 34px; }
+  .fc-list li {
+    font-size: 15px;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.85);
+    padding: 8px 0 8px 32px;
+    position: relative;
+  }
+  .fc-list li svg { position: absolute; left: 0; top: 10px; }
+  .funding-card .btn-primary {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    padding: 16px 24px;
+    animation: none;
+  }
+
+  /* ============ STORIES ============ */
+  .stories { background: var(--gray-bg); }
+  .stories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .story-card {
+    background: var(--white);
+    border-radius: var(--radius-card);
+    padding: 40px 36px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .story-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 48px rgba(29,29,31,0.12);
+  }
+  .story-quote { font-size: 16px; line-height: 1.65; color: var(--text); margin-bottom: 28px; }
+  .story-person { display: flex; align-items: center; gap: 14px; margin-top: auto; }
+  .story-avatar {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--dark);
+    color: var(--orange);
+    font-size: 15px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .story-meta strong { display: block; font-size: 15px; font-weight: 700; }
+  .story-meta span { display: block; font-size: 13.5px; color: var(--text-muted); }
+  .story-meta .story-before { font-size: 12.5px; font-weight: 600; color: #C25A0E; margin-top: 2px; }
 
   /* ============ CTA / BOOKING ============ */
   .cta {
@@ -614,32 +898,48 @@
   /* ============ FOOTER ============ */
   .footer {
     background: var(--dark-deep);
-    padding: 48px 24px;
+    padding: 72px 24px 40px;
   }
-  .footer-inner {
+  .footer-grid {
     max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 32px;
-    flex-wrap: wrap;
+    margin: 0 auto 56px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
   }
   .footer .nav-logo svg { width: 32px; height: 32px; }
   .footer .wordmark .top { font-size: 13.5px; }
   .footer .wordmark .bottom { font-size: 7.5px; }
-  .footer-links {
-    display: flex;
-    gap: 28px;
-    flex-wrap: wrap;
+  .footer-brand p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.55);
+    max-width: 300px;
+    margin-top: 18px;
   }
-  .footer-links a {
-    font-size: 13.5px;
+  .footer-col h4 {
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .footer-col a {
+    display: block;
+    font-size: 14px;
     color: rgba(255,255,255,0.6);
+    padding: 5px 0;
     transition: color 0.25s ease;
   }
-  .footer-links a:hover { color: var(--white); }
-  .footer-copy {
+  .footer-col a:hover { color: var(--white); }
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
     font-size: 13px;
     color: rgba(255,255,255,0.4);
   }
@@ -650,7 +950,10 @@
 
   /* ============ RESPONSIVE ============ */
   @media (max-width: 980px) {
-    .value-grid, .courses-grid { grid-template-columns: 1fr; max-width: 520px; }
+    .value-grid, .courses-grid, .stories-grid { grid-template-columns: 1fr; max-width: 520px; }
+    .path-grid { grid-template-columns: 1fr 1fr; max-width: 680px; }
+    .method-grid, .funding-grid { grid-template-columns: 1fr; gap: 48px; max-width: 560px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
     .steps-grid { grid-template-columns: 1fr; gap: 56px; max-width: 440px; }
     .steps-grid::before {
       left: 50%;
@@ -679,10 +982,13 @@
     .btn-primary { font-size: 16px; padding: 16px 32px; }
     .section { padding: 72px 20px; }
     .cta { padding: 96px 20px; }
-    .value-card, .course-card { padding: 36px 28px; }
+    .value-card, .course-card, .story-card { padding: 36px 28px; }
+    .path-grid { grid-template-columns: 1fr; max-width: 440px; }
+    .funding-card { padding: 36px 28px; }
+    .fc-price { font-size: 52px; }
     .trust { padding: 44px 20px; }
     .trust-badge { font-size: 13px; padding: 10px 18px; }
-    .footer-inner { flex-direction: column; align-items: flex-start; gap: 24px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -722,7 +1028,8 @@
     <nav class="nav-links" aria-label="Hauptnavigation">
       <a href="#kurse">Kurse</a>
       <a href="#methode">Methode</a>
-      <a href="#unternehmen">Für Unternehmen</a>
+      <a href="#foerderung">Förderung</a>
+      <a href="#erfolge">Erfolge</a>
       <a href="#ueber-uns">Über uns</a>
     </nav>
     <a href="#beratung" class="nav-cta">Beratung buchen</a>
@@ -735,7 +1042,8 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="#kurse">Kurse</a>
   <a href="#methode">Methode</a>
-  <a href="#unternehmen">Für Unternehmen</a>
+  <a href="#foerderung">Förderung</a>
+  <a href="#erfolge">Erfolge</a>
   <a href="#ueber-uns">Über uns</a>
   <a href="#beratung" class="nav-cta">Beratung buchen</a>
 </div>
@@ -744,14 +1052,20 @@
 <section class="hero" id="hero">
   <canvas id="hero-canvas" aria-hidden="true"></canvas>
   <div class="hero-content">
-    <p class="hero-overline" data-hero>KI-Weiterbildung. Staatlich förderbar.</p>
+    <p class="hero-overline" data-hero>100&nbsp;% über Bildungsgutschein</p>
     <h1 data-hero>Künstliche Intelligenz lernen. <span class="accent">Kostenlos.</span></h1>
-    <p class="hero-sub" data-hero>Mit Bildungsgutschein, Jobcenter-Förderung oder Qualifizierungschancengesetz — wir begleiten dich von Null zur KI-Kompetenz.</p>
+    <p class="hero-sub" data-hero>Daten und KI bestimmen die Jobs von morgen — wir bringen dich heute hinein. Mit Bildungsgutschein, Jobcenter-Förderung oder Qualifizierungschancengesetz. Schritt für Schritt, auch ohne Vorwissen.</p>
     <div data-hero>
       <a href="#beratung" class="btn-primary">Kostenloses Beratungsgespräch buchen&nbsp;→</a>
     </div>
     <div data-hero>
       <a href="#beratung" class="hero-secondary">Bin ich förderberechtigt? Jetzt prüfen</a>
+    </div>
+    <div data-hero>
+      <p class="hero-reassure">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#ED7117" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Für Arbeitssuchende &amp; von Arbeitslosigkeit Bedrohte komplett kostenfrei
+      </p>
     </div>
   </div>
   <a href="#trust" class="scroll-indicator" aria-label="Nach unten scrollen">
@@ -769,7 +1083,8 @@
     <span class="trust-badge reveal">Bundesagentur für Arbeit</span>
     <span class="trust-badge reveal">Bildungsgutschein</span>
     <span class="trust-badge reveal">Qualifizierungschancengesetz</span>
-    <span class="trust-badge reveal">AZAV-zertifiziert</span>
+    <span class="trust-badge reveal">IHK- &amp; Microsoft-Zertifikate</span>
+    <span class="trust-badge reveal">100&nbsp;% Remote</span>
   </div>
 </section>
 
@@ -777,6 +1092,7 @@
 <section class="section value" id="ueber-uns">
   <div class="section-head reveal">
     <h2>Warum Data School?</h2>
+    <p>Daten und KI verändern fast jeden Beruf. Wir machen diese Zukunft zugänglich — mit Inhalten aus der echten Praxis, die so aufgebaut sind, dass du auch ohne Vorwissen sicher reinkommst.</p>
   </div>
   <div class="value-grid">
     <article class="value-card reveal">
@@ -799,8 +1115,8 @@
           <path d="M12 8v8M9.5 10.5L12 12l2.5-1.5"/>
         </svg>
       </div>
-      <h3>Praxisnahe KI-Ausbildung</h3>
-      <p>Keine Theorie-Wüste. Du arbeitest von Tag 1 mit echten KI-Tools, Prompt Engineering und branchenspezifischen Anwendungsfällen.</p>
+      <h3>Aus der Praxis, nicht aus dem Lehrbuch</h3>
+      <p>Keine Theorie-Wüste. Unsere Dozent:innen arbeiten selbst täglich mit Daten und KI — du arbeitest von Tag 1 mit echten Tools, echten Aufgaben und branchenspezifischen Anwendungsfällen.</p>
     </article>
     <article class="value-card reveal">
       <div class="value-icon" aria-hidden="true">
@@ -812,39 +1128,133 @@
         </svg>
       </div>
       <h3>Anerkannte Zertifikate</h3>
-      <p>Du schließt mit einem zertifizierten Abschluss ab — relevant für den Arbeitsmarkt, anerkannt von Arbeitgebern.</p>
+      <p>Du schließt mit IHK- und Microsoft-Zertifikaten ab — relevant für den Arbeitsmarkt, anerkannt von Arbeitgebern und der Agentur für Arbeit.</p>
+    </article>
+    <article class="value-card reveal">
+      <div class="value-icon" aria-hidden="true">
+        <!-- trending chart -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="#ED7117" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 3v18h18"/>
+          <path d="M7 14l4-4 4 4 5-6"/>
+        </svg>
+      </div>
+      <h3>Die Jobs von morgen</h3>
+      <p>Daten und KI bestimmen, wo in den nächsten Jahren gearbeitet wird. Wir bilden dich genau für die Rollen aus, die der Arbeitsmarkt jetzt und in Zukunft sucht — nicht für Auslaufmodelle.</p>
+    </article>
+    <article class="value-card reveal">
+      <div class="value-icon" aria-hidden="true">
+        <!-- lightbulb -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="#ED7117" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 18h6M10 22h4"/>
+          <path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V17h6v-.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/>
+        </svg>
+      </div>
+      <h3>Verständlich von Anfang an</h3>
+      <p>Wir haben jeden Kurs so entwickelt, dass komplexe Themen Schritt für Schritt greifbar werden. Kein Fachchinesisch, kein Überforderungsgefühl — ein roter Faden, dem du folgen kannst.</p>
+    </article>
+    <article class="value-card reveal">
+      <div class="value-icon" aria-hidden="true">
+        <!-- laptop / remote -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="#ED7117" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="5" width="16" height="11" rx="2"/>
+          <path d="M2 19h20"/>
+        </svg>
+      </div>
+      <h3>100&nbsp;% online, mit fester Betreuung</h3>
+      <p>Du lernst flexibel von zu Hause, in deinem Tempo — begleitet von persönlichen Ansprechpartnern, die dranbleiben, wenn es mal hakt.</p>
     </article>
   </div>
 </section>
 
 <!-- ============ STEPS ============ -->
-<section class="section steps" id="methode">
+<section class="section steps" id="ablauf">
   <div class="section-head reveal">
-    <h2>So funktioniert's</h2>
+    <h2>Dein Weg in 4 Schritten</h2>
   </div>
   <div class="steps-grid">
     <div class="step reveal">
       <div class="step-number">1</div>
       <h3>Beratungsgespräch</h3>
-      <p>Wir prüfen kostenlos und unverbindlich deine Förderberechtigung.</p>
+      <p>Kostenlos &amp; unverbindlich: Wir prüfen deine Förderberechtigung und finden den passenden Kurs.</p>
     </div>
     <div class="step reveal">
       <div class="step-number">2</div>
-      <h3>Kursauswahl</h3>
-      <p>Du wählst deinen KI-Kurs — wir beantragen die Förderung für dich.</p>
+      <h3>Bildungsgutschein</h3>
+      <p>Wir helfen dir beim Antrag bei Agentur für Arbeit oder Jobcenter — mit allen Unterlagen.</p>
     </div>
     <div class="step reveal">
       <div class="step-number">3</div>
-      <h3>Lernen &amp; Zertifizieren</h3>
-      <p>Du lernst flexibel online, wirst von echten Experten begleitet und erhältst dein Zertifikat.</p>
+      <h3>Weiterbildung &amp; Praxisprojekt</h3>
+      <p>Du lernst 100&nbsp;% online in deinem Tempo — und baust mit echten Daten dein Portfolio auf.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-number">4</div>
+      <h3>Bereit für den Job</h3>
+      <p>Mit Zertifikat, Portfolio und echtem Praxiswissen startest du in deinen Daten- oder KI-Beruf.</p>
     </div>
   </div>
 </section>
 
-<!-- ============ COURSES ============ -->
-<section class="section courses" id="kurse">
+<!-- ============ CAREER PATH ============ -->
+<section class="section path" id="kurse">
   <div class="section-head reveal">
-    <h2>Unsere KI-Kurse</h2>
+    <h2>Steig dort ein, wo du stehst.</h2>
+    <p>Vom ersten Kontakt mit Daten bis zum Data Engineer — eine durchgehende Treppe. Jeder Baustein ist auch einzeln über Bildungsgutschein buchbar.</p>
+  </div>
+  <div class="path-grid">
+    <article class="path-card reveal">
+      <div class="path-level">Einstieg</div>
+      <h3>Grundlagen</h3>
+      <div class="path-dur">3 Monate</div>
+      <ul>
+        <li>Datenanalyse-Basics</li>
+        <li>Excel</li>
+        <li>Kommunikation &amp; Präsentation</li>
+      </ul>
+    </article>
+    <article class="path-card featured reveal">
+      <span class="path-badge">Beliebtester Start</span>
+      <div class="path-level">Kernprogramm</div>
+      <h3>Data Analyst</h3>
+      <div class="path-dur">12 Monate · IHK</div>
+      <ul>
+        <li>SQL &amp; Datenbanken</li>
+        <li>Power BI</li>
+        <li>Python für Analyse</li>
+        <li>Statistik &amp; ML-Basics</li>
+      </ul>
+    </article>
+    <article class="path-card reveal">
+      <div class="path-level">Aufbau</div>
+      <h3>Data Scientist</h3>
+      <div class="path-dur">9 Monate</div>
+      <ul>
+        <li>Machine Learning</li>
+        <li>Python Advanced</li>
+        <li>KI-Modelle</li>
+        <li>Agiles Projektmgmt.</li>
+      </ul>
+    </article>
+    <article class="path-card reveal">
+      <div class="path-level">Spezialist</div>
+      <h3>Data Engineer</h3>
+      <div class="path-dur">9 Monate</div>
+      <ul>
+        <li>Datenpipelines</li>
+        <li>Cloud (Azure/GCP)</li>
+        <li>Datenarchitektur</li>
+        <li>Automatisierung</li>
+      </ul>
+    </article>
+  </div>
+  <p class="path-foot reveal">Nicht sicher, wo du startest? <strong>Wir finden es im Beratungsgespräch gemeinsam heraus.</strong> <a href="#beratung" style="color:#C25A0E;font-weight:600;">Termin sichern&nbsp;→</a></p>
+</section>
+
+<!-- ============ COURSES ============ -->
+<section class="section courses" id="kompaktkurse">
+  <div class="section-head reveal">
+    <h2>Kompakte KI-Kurse</h2>
+    <p>Der schnelle Einstieg in Künstliche Intelligenz — für Berufstätige, Teams und alle, die sofort loslegen wollen.</p>
   </div>
   <div class="courses-grid">
     <article class="course-card reveal">
@@ -880,11 +1290,156 @@
   </div>
 </section>
 
+<!-- ============ METHOD ============ -->
+<section class="section method" id="methode">
+  <div class="method-grid">
+    <div class="reveal">
+      <div class="section-head left">
+        <p class="section-overline">Unser Ansatz</p>
+        <h2>So fühlt sich Lernen an, wenn es Klick macht.</h2>
+        <p>Viele scheitern nicht an mangelndem Talent, sondern an Kursen, die zu schnell zu kompliziert werden. Wir haben unsere Inhalte bewusst anders gebaut.</p>
+      </div>
+      <div class="method-list">
+        <div class="method-row">
+          <div class="method-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#ED7117" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg>
+          </div>
+          <div>
+            <h3>Vom Alltag zur Theorie — nie umgekehrt</h3>
+            <p>Jedes Thema beginnt mit einer echten Frage aus dem Berufsleben. Die Technik dahinter lernst du, weil du sie brauchst — nicht, weil sie im Lehrplan steht.</p>
+          </div>
+        </div>
+        <div class="method-row">
+          <div class="method-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#ED7117" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16M5 19a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg>
+          </div>
+          <div>
+            <h3>Schritt für Schritt, ohne Sprünge</h3>
+            <p>Der Aufbau folgt einem roten Faden. Du baust auf, was du schon kannst — statt überfordert hinterherzuhängen.</p>
+          </div>
+        </div>
+        <div class="method-row">
+          <div class="method-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#ED7117" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div>
+            <h3>Dozent:innen, die selbst mit Daten arbeiten</h3>
+            <p>Du lernst von Menschen, die den Beruf leben — und dir sagen können, worauf es wirklich ankommt.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="m-card">
+        <div class="m-card-label">Beispiel: So führen wir ein Thema ein</div>
+        <div class="m-bubble-q">„Welche unserer Produkte verkaufen sich im Winter am besten?“</div>
+        <div class="m-arrow">↓ daraus lernst du</div>
+        <div>
+          <span class="m-chip">Daten filtern</span>
+          <span class="m-chip">Gruppieren &amp; sortieren</span>
+          <span class="m-chip">Ergebnis visualisieren</span>
+        </div>
+        <div class="m-card-foot">Erst die Frage, dann das Werkzeug. So bleibt es greifbar.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FUNDING ============ -->
+<section class="section funding" id="foerderung">
+  <div class="funding-grid">
+    <div class="reveal">
+      <div class="section-head left">
+        <p class="section-overline">Finanzierung</p>
+        <h2>Für dich kostenlos. Wirklich.</h2>
+        <p>Wenn du arbeitssuchend oder von Arbeitslosigkeit bedroht bist, übernimmt die Agentur für Arbeit oder das Jobcenter die kompletten Kosten über einen Bildungsgutschein.</p>
+      </div>
+      <div class="funding-steps">
+        <div class="frow">
+          <div class="n">1</div>
+          <div>
+            <h3>Beratungsgespräch bei uns</h3>
+            <p>Wir klären in 15 Minuten, welcher Kurs zu dir passt.</p>
+          </div>
+        </div>
+        <div class="frow">
+          <div class="n">2</div>
+          <div>
+            <h3>Termin bei der Agentur für Arbeit</h3>
+            <p>Wir geben dir alle Unterlagen an die Hand, die du dafür brauchst.</p>
+          </div>
+        </div>
+        <div class="frow">
+          <div class="n">3</div>
+          <div>
+            <h3>Bildungsgutschein einlösen</h3>
+            <p>Du startest — ohne einen Cent selbst zu zahlen.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="funding-card reveal">
+      <div class="fc-strike">Regulärer Wert: mehrere tausend&nbsp;€</div>
+      <div class="fc-price">0&nbsp;€ <small>für dich mit Bildungsgutschein</small></div>
+      <ul class="fc-list">
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#ED7117" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Kostenloser Laptop für die Weiterbildung*</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#ED7117" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Alle Software-Lizenzen inklusive</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#ED7117" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>IHK- &amp; Microsoft-Zertifikate</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#ED7117" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Persönliche Betreuung &amp; Praxisprojekte</li>
+      </ul>
+      <a href="#beratung" class="btn-primary">Jetzt Anspruch prüfen lassen</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STORIES ============ -->
+<section class="section stories" id="erfolge">
+  <div class="section-head reveal">
+    <h2>Reingekommen — und drangeblieben.</h2>
+    <p>Menschen, die gezweifelt haben, ob Daten und KI etwas für sie sind — und es dann doch verstanden haben.</p>
+  </div>
+  <div class="stories-grid">
+    <article class="story-card reveal">
+      <p class="story-quote">„Ich hatte echt Angst vor dem Technischen. Aber durch die Beispiele aus dem Alltag hat es bei mir Stück für Stück Klick gemacht.“</p>
+      <div class="story-person">
+        <div class="story-avatar">MB</div>
+        <div class="story-meta">
+          <strong>Maria B.</strong>
+          <span>Data Analyst, Logistikbranche</span>
+          <span class="story-before">vorher: kaufm. Angestellte</span>
+        </div>
+      </div>
+    </article>
+    <article class="story-card reveal">
+      <p class="story-quote">„Was ich gelernt habe, konnte ich am nächsten Tag direkt anwenden. Nichts war graue Theorie — alles kam aus der echten Praxis.“</p>
+      <div class="story-person">
+        <div class="story-avatar">TK</div>
+        <div class="story-meta">
+          <strong>Thomas K.</strong>
+          <span>Business Analyst, Finanzwesen</span>
+          <span class="story-before">vorher: arbeitssuchend</span>
+        </div>
+      </div>
+    </article>
+    <article class="story-card reveal">
+      <p class="story-quote">„Die feste Lernstruktur war für mich entscheidend. Ich brauchte jemanden, der dranbleibt — und genau das habe ich bekommen.“</p>
+      <div class="story-person">
+        <div class="story-avatar">AL</div>
+        <div class="story-meta">
+          <strong>Aylin L.</strong>
+          <span>Data Scientist, E-Commerce</span>
+          <span class="story-before">vorher: Quereinsteigerin</span>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
 <!-- ============ CTA / BOOKING ============ -->
 <section class="cta" id="beratung">
   <div class="cta-inner">
-    <h2 class="reveal">Dein erster Schritt in die KI-Welt.</h2>
-    <p class="cta-sub reveal">Buche jetzt dein kostenloses Erstgespräch — in 15 Minuten wissen wir, welche Förderung für dich möglich ist.</p>
+    <h2 class="reveal">Lass uns über deinen Weg sprechen.</h2>
+    <p class="cta-sub reveal">15 Minuten, kostenlos, unverbindlich. Wir prüfen deinen Anspruch auf den Bildungsgutschein und finden den passenden Kurs.</p>
     <form class="cta-form reveal" id="bookingForm" novalidate>
       <input type="text" name="vorname" placeholder="Vorname" autocomplete="given-name" required>
       <input type="email" name="email" placeholder="E-Mail-Adresse" autocomplete="email" required>
@@ -910,21 +1465,43 @@
 
 <!-- ============ FOOTER ============ -->
 <footer class="footer">
-  <div class="footer-inner">
-    <a href="#" class="nav-logo" aria-label="Data School">
-      <svg viewBox="0 0 64 64" aria-hidden="true"><use href="#dataMark"/></svg>
-      <span class="wordmark">
-        <span class="top"><span class="o">DATA</span> SCHOOL</span>
-        <span class="bottom">Datenwissen für die Zukunft</span>
-      </span>
-    </a>
-    <nav class="footer-links" aria-label="Rechtliches">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo" aria-label="Data School">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><use href="#dataMark"/></svg>
+        <span class="wordmark">
+          <span class="top"><span class="o">DATA</span> SCHOOL</span>
+          <span class="bottom">Datenwissen für die Zukunft</span>
+        </span>
+      </a>
+      <p>Weiterbildung für Daten- und KI-Berufe. Praxisnah, verständlich, für die Jobs von morgen.</p>
+    </div>
+    <nav class="footer-col" aria-label="Kurse">
+      <h4>Kurse</h4>
+      <a href="#kurse">Grundlagen</a>
+      <a href="#kurse">Data Analyst</a>
+      <a href="#kurse">Data Scientist</a>
+      <a href="#kurse">Data Engineer</a>
+      <a href="#kompaktkurse">Kompakte KI-Kurse</a>
+    </nav>
+    <nav class="footer-col" aria-label="Akademie">
+      <h4>Akademie</h4>
+      <a href="#ueber-uns">Über uns</a>
+      <a href="#methode">Unsere Methode</a>
+      <a href="#foerderung">Förderung</a>
+      <a href="#unternehmen">Für Unternehmen</a>
+      <a href="#beratung">Kontakt</a>
+    </nav>
+    <nav class="footer-col" aria-label="Rechtliches">
+      <h4>Rechtliches</h4>
       <a href="#">Impressum</a>
       <a href="#">Datenschutz</a>
-      <a href="#">Kontakt</a>
-      <a href="#">AZAV-Zertifizierung</a>
+      <a href="#">AGB</a>
     </nav>
-    <p class="footer-copy">© 2025 Data School</p>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Data School</span>
+    <span>*Laptop-Leihgabe für die Dauer der Weiterbildung</span>
   </div>
 </footer>
 

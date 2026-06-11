@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DatenKarriere Akademie – Weiterbildung mit Jobgarantie-Versprechen</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --ink: #1a2e35;
+  --ink-soft: #4a5d63;
+  --paper: #faf7f2;
+  --paper-card: #ffffff;
+  --teal: #0d6e6e;
+  --teal-deep: #084d4d;
+  --amber: #e8923a;
+  --amber-soft: #f9ecd9;
+  --line: #e4ddd1;
+  --green-flag: #d4f0e0;
+  --green-flag-ink: #0a5c3a;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { font-family: 'Fraunces', serif; font-weight: 500; line-height: 1.15; letter-spacing: -0.01em; }
+
+.container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* ============ NAV ============ */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(250, 247, 242, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+.logo { font-family: 'Fraunces', serif; font-size: 21px; font-weight: 600; color: var(--ink); display: flex; align-items: center; gap: 9px; }
+.logo-mark {
+  width: 30px; height: 30px; border-radius: 8px;
+  background: var(--teal); position: relative; flex-shrink: 0;
+}
+.logo-mark::before, .logo-mark::after {
+  content: ''; position: absolute; bottom: 7px; width: 4px; border-radius: 2px; background: var(--amber);
+}
+.logo-mark::before { left: 8px; height: 9px; }
+.logo-mark::after { left: 15px; height: 15px; box-shadow: 7px 0 0 var(--paper-card); }
+.nav-links { display: flex; gap: 28px; align-items: center; }
+.nav-links a { text-decoration: none; color: var(--ink-soft); font-size: 14.5px; font-weight: 500; transition: color 0.15s; }
+.nav-links a:hover { color: var(--teal); }
+.nav-cta {
+  background: var(--teal); color: #fff !important; padding: 9px 18px; border-radius: 8px; font-size: 14px !important;
+}
+.nav-cta:hover { background: var(--teal-deep); }
+@media (max-width: 860px) { .nav-links a:not(.nav-cta) { display: none; } }
+
+/* ============ HERO ============ */
+.hero { padding: 72px 0 64px; position: relative; overflow: hidden; }
+.hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; }
+@media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 600; color: var(--teal-deep);
+  background: var(--green-flag); padding: 6px 13px; border-radius: 100px; margin-bottom: 22px;
+}
+.eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); }
+.hero h1 { font-size: clamp(34px, 5vw, 52px); margin-bottom: 20px; }
+.hero h1 .accent { font-style: italic; color: var(--teal); position: relative; }
+.hero h1 .accent::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: 2px; height: 8px;
+  background: var(--amber-soft); z-index: -1; border-radius: 2px;
+}
+.hero p.lead { font-size: 18px; color: var(--ink-soft); margin-bottom: 28px; max-width: 520px; }
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin-bottom: 28px; }
+.btn-primary {
+  background: var(--amber); color: var(--ink); font-weight: 600; font-size: 15.5px;
+  padding: 14px 26px; border-radius: 10px; border: none; cursor: pointer; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px; transition: transform 0.12s, box-shadow 0.12s;
+  box-shadow: 0 2px 0 #c9762a;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 4px 0 #c9762a; }
+.btn-ghost { color: var(--ink); font-weight: 600; font-size: 15px; text-decoration: none; display: inline-flex; align-items: center; gap: 7px; padding: 13px 8px; }
+.btn-ghost:hover { color: var(--teal); }
+.hero-reassure { font-size: 13.5px; color: var(--ink-soft); display: flex; align-items: center; gap: 7px; }
+.hero-reassure svg { flex-shrink: 0; }
+
+/* hero visual: the job path */
+.hero-visual { position: relative; }
+.path-card {
+  background: var(--paper-card); border: 1px solid var(--line); border-radius: 18px; padding: 28px 26px;
+  box-shadow: 0 20px 50px -28px rgba(13,110,110,0.4);
+}
+.path-card-title { font-size: 13px; font-weight: 600; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 22px; }
+.path-step { display: flex; gap: 16px; align-items: flex-start; position: relative; padding-bottom: 24px; }
+.path-step:last-child { padding-bottom: 0; }
+.path-step:not(:last-child)::before {
+  content: ''; position: absolute; left: 15px; top: 34px; bottom: 0; width: 2px; background: var(--line);
+}
+.path-step.done:not(:last-child)::before { background: var(--teal); }
+.step-num {
+  width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 600; z-index: 1;
+}
+.step-num.done { background: var(--teal); color: #fff; }
+.step-num.now { background: var(--amber); color: var(--ink); box-shadow: 0 0 0 4px var(--amber-soft); }
+.step-num.future { background: var(--paper); border: 2px solid var(--line); color: var(--ink-soft); }
+.step-body h4 { font-family: 'Inter'; font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+.step-body p { font-size: 13.5px; color: var(--ink-soft); margin: 0; }
+.step-tag { font-size: 11.5px; font-weight: 600; color: var(--teal); background: var(--green-flag); padding: 2px 9px; border-radius: 5px; display: inline-block; margin-top: 5px; }
+
+/* ============ TRUST BAR ============ */
+.trust { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--paper-card); padding: 24px 0; }
+.trust-inner { display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
+.trust-item { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 500; color: var(--ink-soft); }
+.trust-item strong { color: var(--ink); font-weight: 600; }
+.trust-badge { width: 38px; height: 38px; border-radius: 8px; background: var(--green-flag); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+/* ============ SECTION GENERICS ============ */
+section.block { padding: 80px 0; }
+.section-head { max-width: 640px; margin-bottom: 48px; }
+.section-eyebrow { font-size: 13px; font-weight: 600; color: var(--amber); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px; }
+.section-head h2 { font-size: clamp(28px, 4vw, 40px); margin-bottom: 16px; }
+.section-head p { font-size: 17px; color: var(--ink-soft); }
+
+/* ============ METHOD ============ */
+.method-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center; }
+@media (max-width: 880px) { .method-grid { grid-template-columns: 1fr; gap: 40px; } }
+.method .section-eyebrow { color: var(--amber); }
+.method h2 { font-size: clamp(28px, 4vw, 38px); margin-bottom: 16px; }
+.method-lead { font-size: 17px; color: var(--ink-soft); margin-bottom: 30px; }
+.method-list { display: flex; flex-direction: column; gap: 22px; }
+.method-row { display: flex; gap: 16px; align-items: flex-start; }
+.m-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--green-flag); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.method-row h4 { font-family: 'Inter'; font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+.method-row p { font-size: 14.5px; color: var(--ink-soft); margin: 0; }
+.method-visual { display: flex; justify-content: center; }
+.m-card { background: var(--paper-card); border: 1px solid var(--line); border-radius: 18px; padding: 28px; max-width: 360px; width: 100%; box-shadow: 0 20px 50px -30px rgba(13,110,110,0.35); }
+.m-card-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); margin-bottom: 18px; }
+.m-bubble-q { background: var(--teal); color: #fff; padding: 14px 18px; border-radius: 14px 14px 14px 4px; font-size: 15px; font-weight: 500; }
+.m-arrow { text-align: center; font-size: 13px; color: var(--amber); font-weight: 600; margin: 16px 0; }
+.m-chip { display: inline-block; background: var(--amber-soft); color: var(--ink); font-size: 13.5px; font-weight: 500; padding: 7px 14px; border-radius: 8px; margin: 0 6px 8px 0; }
+.m-card-foot { font-size: 13px; color: var(--ink-soft); font-style: italic; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line); }
+
+/* ============ DIFFERENCE (job focus) ============ */
+.diff { background: var(--teal-deep); color: #fff; }
+.diff .section-eyebrow { color: var(--amber); }
+.diff .section-head h2 { color: #fff; }
+.diff .section-head p { color: #cfe3e3; }
+.diff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+@media (max-width: 800px) { .diff-grid { grid-template-columns: 1fr; } }
+.diff-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 28px 24px; }
+.diff-card .icon { width: 44px; height: 44px; border-radius: 11px; background: var(--amber); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+.diff-card h3 { font-size: 20px; color: #fff; margin-bottom: 10px; }
+.diff-card p { font-size: 14.5px; color: #cfe3e3; }
+.diff-stat { font-family: 'Fraunces', serif; font-size: 40px; font-weight: 600; color: var(--amber); line-height: 1; margin-bottom: 6px; }
+.diff-note { font-size: 12px; color: #9cbcbc; margin-top: 18px; font-style: italic; }
+
+/* ============ PATH / CURRICULUM ============ */
+.ladder { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; margin-top: 12px; }
+@media (max-width: 800px) { .ladder { grid-template-columns: 1fr 1fr; gap: 16px; } }
+@media (max-width: 480px) { .ladder { grid-template-columns: 1fr; } }
+.rung {
+  background: var(--paper-card); border: 1px solid var(--line); padding: 26px 20px; position: relative;
+}
+.ladder .rung:first-child { border-radius: 14px 0 0 14px; }
+.ladder .rung:last-child { border-radius: 0 14px 14px 0; }
+@media (max-width: 800px) { .ladder .rung { border-radius: 14px !important; } }
+.rung.featured { background: var(--ink); color: #fff; transform: scale(1.04); border-radius: 14px; z-index: 2; box-shadow: 0 20px 40px -22px rgba(26,46,53,0.6); }
+.rung-level { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--amber); margin-bottom: 12px; }
+.rung h3 { font-size: 19px; margin-bottom: 6px; }
+.rung.featured h3 { color: #fff; }
+.rung .dur { font-size: 13px; color: var(--ink-soft); margin-bottom: 14px; }
+.rung.featured .dur { color: #b9c4c8; }
+.rung ul { list-style: none; }
+.rung li { font-size: 13px; color: var(--ink-soft); padding: 3px 0 3px 18px; position: relative; }
+.rung.featured li { color: #d4dde0; }
+.rung li::before { content: ''; position: absolute; left: 0; top: 11px; width: 6px; height: 6px; border-radius: 50%; background: var(--teal); }
+.rung.featured li::before { background: var(--amber); }
+.rung-badge { position: absolute; top: -11px; left: 20px; background: var(--amber); color: var(--ink); font-size: 11px; font-weight: 600; padding: 3px 11px; border-radius: 100px; }
+.ladder-foot { text-align: center; margin-top: 30px; font-size: 14px; color: var(--ink-soft); }
+.ladder-foot strong { color: var(--ink); }
+
+/* ============ HOW IT WORKS / FUNDING ============ */
+.funding { background: var(--amber-soft); }
+.funding-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+@media (max-width: 820px) { .funding-grid { grid-template-columns: 1fr; gap: 32px; } }
+.funding h2 { font-size: clamp(28px, 4vw, 38px); margin-bottom: 16px; }
+.funding .lead { font-size: 17px; color: var(--ink-soft); margin-bottom: 24px; }
+.steps-list { counter-reset: s; }
+.step-row { display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid #ecd9bd; }
+.step-row:last-child { border-bottom: none; }
+.step-row .n { width: 30px; height: 30px; border-radius: 50%; background: var(--teal); color: #fff; font-weight: 600; font-size: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.step-row h4 { font-family: 'Inter'; font-size: 15.5px; font-weight: 600; margin-bottom: 2px; }
+.step-row p { font-size: 14px; color: var(--ink-soft); margin: 0; }
+.funding-card { background: var(--paper-card); border-radius: 18px; padding: 32px; border: 1px solid var(--line); box-shadow: 0 20px 50px -30px rgba(13,110,110,0.35); }
+.fc-price { font-family: 'Fraunces', serif; font-size: 52px; font-weight: 600; color: var(--teal); line-height: 1; }
+.fc-price small { font-size: 17px; color: var(--ink-soft); font-family: 'Inter'; font-weight: 500; }
+.fc-strike { font-size: 15px; color: var(--ink-soft); text-decoration: line-through; margin-bottom: 4px; }
+.fc-list { list-style: none; margin: 22px 0; }
+.fc-list li { font-size: 14.5px; padding: 7px 0 7px 28px; position: relative; }
+.fc-list li svg { position: absolute; left: 0; top: 9px; }
+
+/* ============ STORIES ============ */
+.stories-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+@media (max-width: 820px) { .stories-grid { grid-template-columns: 1fr; } }
+.story { background: var(--paper-card); border: 1px solid var(--line); border-radius: 14px; padding: 26px; }
+.story-quote { font-size: 15px; color: var(--ink); margin-bottom: 20px; }
+.story-person { display: flex; align-items: center; gap: 12px; }
+.story-avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--teal); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 15px; flex-shrink: 0; }
+.story-meta strong { display: block; font-size: 14.5px; }
+.story-meta span { font-size: 13px; color: var(--ink-soft); }
+.story-before { font-size: 12px; color: var(--amber); font-weight: 600; margin-top: 3px; }
+
+/* ============ CTA BAND ============ */
+.cta-band { background: var(--teal); color: #fff; text-align: center; }
+.cta-band h2 { font-size: clamp(28px, 4vw, 42px); color: #fff; margin-bottom: 16px; }
+.cta-band p { font-size: 18px; color: #d4ecec; margin-bottom: 32px; max-width: 560px; margin-left: auto; margin-right: auto; }
+.cta-band .btn-primary { font-size: 17px; padding: 16px 34px; }
+
+/* ============ FOOTER ============ */
+footer { background: var(--ink); color: #b9c4c8; padding: 56px 0 32px; }
+.foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; margin-bottom: 40px; }
+@media (max-width: 800px) { .foot-grid { grid-template-columns: 1fr 1fr; } }
+.foot-brand .logo { color: #fff; margin-bottom: 14px; }
+.foot-brand p { font-size: 14px; max-width: 300px; }
+.foot-col h5 { color: #fff; font-size: 14px; font-weight: 600; margin-bottom: 14px; font-family: 'Inter'; }
+.foot-col a { display: block; color: #b9c4c8; text-decoration: none; font-size: 13.5px; padding: 4px 0; }
+.foot-col a:hover { color: var(--amber); }
+.foot-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; font-size: 13px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.in { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <div class="logo"><span class="logo-mark"></span>DatenKarriere</div>
+    <div class="nav-links">
+      <a href="#weg">Dein Weg</a>
+      <a href="#kurse">Kurse</a>
+      <a href="#foerderung">Förderung</a>
+      <a href="#stories">Erfolge</a>
+      <a href="#beratung" class="nav-cta">Kostenlose Beratung</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow"><span class="dot"></span>AZAV-zertifiziert · 100 % über Bildungsgutschein</span>
+      <h1>Daten und KI bestimmen die Jobs von morgen. Wir bringen dich <span class="accent">heute hinein.</span></h1>
+      <p class="lead">Werde Datenanalyst oder Data Scientist – mit Inhalten, die wir aus der Praxis entwickelt haben. Verständlich aufgebaut, Schritt für Schritt, auch ohne Vorwissen.</p>
+      <div class="hero-ctas">
+        <a href="#beratung" class="btn-primary">Kostenlose Beratung sichern →</a>
+        <a href="#weg" class="btn-ghost">So funktioniert's</a>
+      </div>
+      <div class="hero-reassure">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#0d6e6e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Für Arbeitssuchende & von Arbeitslosigkeit Bedrohte komplett kostenfrei
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="path-card">
+        <div class="path-card-title">Dein Weg in 4 Schritten</div>
+        <div class="path-step done">
+          <div class="step-num done">✓</div>
+          <div class="step-body"><h4>Bildungsgutschein</h4><p>Wir helfen dir beim Antrag bei Agentur für Arbeit / Jobcenter.</p></div>
+        </div>
+        <div class="path-step done">
+          <div class="step-num done">✓</div>
+          <div class="step-body"><h4>Weiterbildung</h4><p>100 % online, in deinem Tempo, mit fester Betreuung.</p></div>
+        </div>
+        <div class="path-step">
+          <div class="step-num now">3</div>
+          <div class="step-body"><h4>Praxisprojekt & Portfolio</h4><p>Echte Daten, echtes Projekt – dein Nachweis für Arbeitgeber.</p><span class="step-tag">Du bist hier</span></div>
+        </div>
+        <div class="path-step">
+          <div class="step-num future">4</div>
+          <div class="step-body"><h4>Bereit für den Job</h4><p>Mit Zertifikat, Portfolio und echtem Praxiswissen in den Datenberuf.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- TRUST -->
+<div class="trust">
+  <div class="container trust-inner">
+    <div class="trust-item"><span class="trust-badge">📋</span><span><strong>AZAV</strong>-zertifiziert</span></div>
+    <div class="trust-item"><span class="trust-badge">🏛️</span><span>Anerkannt bei der <strong>Agentur für Arbeit</strong></span></div>
+    <div class="trust-item"><span class="trust-badge">🎓</span><span><strong>IHK</strong> & Microsoft Zertifikate</span></div>
+    <div class="trust-item"><span class="trust-badge">💻</span><span>100 % <strong>Remote</strong></span></div>
+  </div>
+</div>
+
+<!-- DIFFERENCE -->
+<section class="block diff" id="weg">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">Warum wir anders sind</div>
+      <h2>Die Skills von morgen – erklärt, dass man sie heute versteht.</h2>
+      <p>Daten und KI verändern fast jeden Beruf. Wir machen diese Zukunft zugänglich: mit Inhalten aus der echten Praxis, die so aufgebaut sind, dass du auch ohne Vorwissen sicher reinkommst.</p>
+    </div>
+    <div class="diff-grid">
+      <div class="diff-card reveal">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18M7 14l4-4 4 4 5-6" stroke="#1a2e35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Die Jobs von morgen</h3>
+        <p>Daten und KI bestimmen, wo in den nächsten Jahren gearbeitet wird. Wir bilden dich genau für die Rollen aus, die der Arbeitsmarkt jetzt und in Zukunft sucht – nicht für Auslaufmodelle.</p>
+      </div>
+      <div class="diff-card reveal">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4-6.3-4.6L5.7 21.4 8 14 2 9.4h7.6L12 2z" stroke="#1a2e35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Aus der Praxis, nicht aus dem Lehrbuch</h3>
+        <p>Unsere Dozent:innen arbeiten selbst täglich mit Daten. Jedes Modul basiert auf echten Aufgaben aus dem Berufsalltag – du lernst, was im Job wirklich gebraucht wird.</p>
+      </div>
+      <div class="diff-card reveal">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V17h6v-.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z" stroke="#1a2e35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Verständlich von Anfang an</h3>
+        <p>Wir haben jeden Kurs so entwickelt, dass komplexe Themen Schritt für Schritt greifbar werden. Kein Fachchinesisch, kein Überforderungsgefühl – ein roter Faden, dem du folgen kannst.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CURRICULUM LADDER -->
+<section class="block" id="kurse">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">Dein Karrierepfad</div>
+      <h2>Steig dort ein, wo du stehst.</h2>
+      <p>Vom ersten Kontakt mit Daten bis zum Data Engineer – eine durchgehende Treppe. Jeder Baustein ist auch einzeln über Bildungsgutschein buchbar.</p>
+    </div>
+    <div class="ladder">
+      <div class="rung reveal">
+        <div class="rung-level">Einstieg</div>
+        <h3>Grundlagen</h3>
+        <div class="dur">3 Monate</div>
+        <ul><li>Datenanalyse-Basics</li><li>Excel</li><li>Kommunikation & Präsentation</li></ul>
+      </div>
+      <div class="rung featured reveal">
+        <span class="rung-badge">Beliebtester Start</span>
+        <div class="rung-level">Kernprogramm</div>
+        <h3>Data Analyst</h3>
+        <div class="dur">12 Monate · IHK</div>
+        <ul><li>SQL & Datenbanken</li><li>Power BI</li><li>Python für Analyse</li><li>Statistik & ML-Basics</li></ul>
+      </div>
+      <div class="rung reveal">
+        <div class="rung-level">Aufbau</div>
+        <h3>Data Scientist</h3>
+        <div class="dur">9 Monate</div>
+        <ul><li>Machine Learning</li><li>Python Advanced</li><li>KI-Modelle</li><li>Agiles Projektmgmt.</li></ul>
+      </div>
+      <div class="rung reveal">
+        <div class="rung-level">Spezialist</div>
+        <h3>Data Engineer</h3>
+        <div class="dur">9 Monate</div>
+        <ul><li>Datenpipelines</li><li>Cloud (Azure/GCP)</li><li>Datenarchitektur</li><li>Automatisierung</li></ul>
+      </div>
+    </div>
+    <p class="ladder-foot reveal">Nicht sicher, wo du startest? <strong>Wir finden es im Beratungsgespräch gemeinsam heraus.</strong></p>
+  </div>
+</section>
+
+<!-- METHOD -->
+<section class="block method">
+  <div class="container method-grid">
+    <div class="reveal">
+      <div class="section-eyebrow">Unser Ansatz</div>
+      <h2>So fühlt sich Lernen an, wenn es Klick macht.</h2>
+      <p class="method-lead">Viele scheitern nicht an mangelndem Talent, sondern an Kursen, die zu schnell zu kompliziert werden. Wir haben unsere Inhalte bewusst anders gebaut.</p>
+      <div class="method-list">
+        <div class="method-row">
+          <div class="m-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M2 12h20" stroke="#0d6e6e" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <div><h4>Vom Alltag zur Theorie – nie umgekehrt</h4><p>Jedes Thema beginnt mit einer echten Frage aus dem Berufsleben. Die Technik dahinter lernst du, weil du sie brauchst – nicht, weil sie im Lehrplan steht.</p></div>
+        </div>
+        <div class="method-row">
+          <div class="m-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16M5 19a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" stroke="#0d6e6e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div><h4>Schritt für Schritt, ohne Sprünge</h4><p>Der Aufbau folgt einem roten Faden. Du baust auf, was du schon kannst – statt überfordert hinterherzuhängen.</p></div>
+        </div>
+        <div class="method-row">
+          <div class="m-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#0d6e6e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div><h4>Dozent:innen, die selbst mit Daten arbeiten</h4><p>Du lernst von Menschen, die den Beruf leben – und dir sagen können, worauf es wirklich ankommt.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="method-visual reveal">
+      <div class="m-card">
+        <div class="m-card-label">Beispiel: So führen wir ein Thema ein</div>
+        <div class="m-bubble m-bubble-q">„Welche unserer Produkte verkaufen sich im Winter am besten?“</div>
+        <div class="m-arrow">↓ daraus lernst du</div>
+        <div class="m-chip">Daten filtern</div>
+        <div class="m-chip">Gruppieren & sortieren</div>
+        <div class="m-chip">Ergebnis visualisieren</div>
+        <div class="m-card-foot">Erst die Frage, dann das Werkzeug. So bleibt es greifbar.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FUNDING -->
+<section class="block funding" id="foerderung">
+  <div class="container funding-grid">
+    <div class="reveal">
+      <div class="section-eyebrow">Finanzierung</div>
+      <h2>Für dich kostenlos. Wirklich.</h2>
+      <p class="lead">Wenn du arbeitssuchend oder von Arbeitslosigkeit bedroht bist, übernimmt die Agentur für Arbeit oder das Jobcenter die kompletten Kosten über einen Bildungsgutschein.</p>
+      <div class="steps-list">
+        <div class="step-row"><div class="n">1</div><div><h4>Beratungsgespräch bei uns</h4><p>Wir klären in 15 Minuten, welcher Kurs zu dir passt.</p></div></div>
+        <div class="step-row"><div class="n">2</div><div><h4>Termin bei der Agentur für Arbeit</h4><p>Wir geben dir alle Unterlagen an die Hand, die du dafür brauchst.</p></div></div>
+        <div class="step-row"><div class="n">3</div><div><h4>Bildungsgutschein einlösen</h4><p>Du startest – ohne einen Cent selbst zu zahlen.</p></div></div>
+      </div>
+    </div>
+    <div class="funding-card reveal">
+      <div class="fc-strike">Regulärer Wert: mehrere tausend €</div>
+      <div class="fc-price">0 €<small> für dich mit Bildungsgutschein</small></div>
+      <ul class="fc-list">
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#0d6e6e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Kostenloser Laptop für die Weiterbildung*</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#0d6e6e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Alle Software-Lizenzen inklusive</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#0d6e6e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>IHK- & Microsoft-Zertifikate</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#0d6e6e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Persönliche Betreuung & Praxisprojekte</li>
+      </ul>
+      <a href="#beratung" class="btn-primary" style="width:100%; justify-content:center;">Jetzt Anspruch prüfen lassen</a>
+    </div>
+  </div>
+</section>
+
+<!-- STORIES -->
+<section class="block" id="stories">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">Echte Wege</div>
+      <h2>Reingekommen – und drangeblieben.</h2>
+      <p>Menschen, die gezweifelt haben, ob Daten etwas für sie sind – und es dann doch verstanden haben. [Platzhalter: durch echte Absolvent:innen mit Einverständnis ersetzen.]</p>
+    </div>
+    <div class="stories-grid">
+      <div class="story reveal">
+        <p class="story-quote">„Ich hatte echt Angst vor dem Technischen. Aber durch die Beispiele aus dem Alltag hat es bei mir Stück für Stück Klick gemacht.“</p>
+        <div class="story-person">
+          <div class="story-avatar">MB</div>
+          <div class="story-meta"><strong>Maria B.</strong><span>Data Analyst, Logistikbranche</span><span class="story-before">vorher: kaufm. Angestellte</span></div>
+        </div>
+      </div>
+      <div class="story reveal">
+        <p class="story-quote">„Was ich gelernt habe, konnte ich am nächsten Tag direkt anwenden. Nichts war graue Theorie – alles kam aus der echten Praxis.“</p>
+        <div class="story-person">
+          <div class="story-avatar">TK</div>
+          <div class="story-meta"><strong>Thomas K.</strong><span>Business Analyst, Finanzwesen</span><span class="story-before">vorher: arbeitssuchend</span></div>
+        </div>
+      </div>
+      <div class="story reveal">
+        <p class="story-quote">„Die feste Lernstruktur war für mich entscheidend. Ich brauchte jemanden, der dranbleibt – und genau das habe ich bekommen.“</p>
+        <div class="story-person">
+          <div class="story-avatar">AL</div>
+          <div class="story-meta"><strong>Aylin L.</strong><span>Data Scientist, E-Commerce</span><span class="story-before">vorher: Quereinsteigerin</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="block cta-band" id="beratung">
+  <div class="container">
+    <h2>Lass uns über deinen Weg sprechen.</h2>
+    <p>15 Minuten, kostenlos, unverbindlich. Wir prüfen deinen Anspruch auf den Bildungsgutschein und finden den passenden Kurs.</p>
+    <a href="#" class="btn-primary" onclick="alert('Hier würde der Buchungskalender öffnen.'); return false;">Kostenlose Beratung buchen →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="logo"><span class="logo-mark"></span>DatenKarriere</div>
+        <p>AZAV-zertifizierter Bildungsträger für Daten- und KI-Berufe. Praxisnah, verständlich, für die Jobs von morgen.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Kurse</h5>
+        <a href="#">Grundlagen</a><a href="#">Data Analyst</a><a href="#">Data Scientist</a><a href="#">Data Engineer</a>
+      </div>
+      <div class="foot-col">
+        <h5>Akademie</h5>
+        <a href="#">Über uns</a><a href="#">Für Arbeitsvermittler</a><a href="#">Für Unternehmen</a><a href="#">Kontakt</a>
+      </div>
+      <div class="foot-col">
+        <h5>Rechtliches</h5>
+        <a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">AGB</a><a href="#">FAQ</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 DatenKarriere Akademie GmbH</span>
+      <span>*Laptop-Leihgabe für die Dauer der Weiterbildung</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
