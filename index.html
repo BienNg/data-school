@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+<script>
+  if ((location.protocol === 'https:' || location.protocol === 'http:') && /\/index\.html$/i.test(location.pathname)) {
+    location.replace(location.origin + location.pathname.replace(/\/index\.html$/i, '/') + location.search + location.hash);
+  }
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Data School — Künstliche Intelligenz lernen. Kostenlos.</title>
 <meta name="description" content="KI- und Daten-Weiterbildung mit Bildungsgutschein, Jobcenter-Förderung oder Qualifizierungschancengesetz. Werde Data Analyst, Data Scientist oder Data Engineer — 100% förderbar. Jetzt kostenloses Beratungsgespräch buchen.">
+<link rel="canonical" href="https://data-school.de/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
