@@ -900,6 +900,18 @@
   }
   .cta-success h3 { color: var(--white); font-size: 24px; font-weight: 700; margin-bottom: 12px; }
   .cta-success p { color: var(--text-light); font-size: 16px; line-height: 1.55; }
+  .cta-form-error {
+    display: none;
+    font-size: 14px;
+    color: #ff8a8a;
+    text-align: center;
+    margin-top: 4px;
+  }
+  .cta-form .btn-primary:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none;
+  }
 
   /* ============ FOOTER ============ */
   .footer {
@@ -1446,7 +1458,12 @@
   <div class="cta-inner">
     <h2 class="reveal">Lass uns über deinen Weg sprechen.</h2>
     <p class="cta-sub reveal">15 Minuten, kostenlos, unverbindlich. Wir prüfen deinen Anspruch auf den Bildungsgutschein und finden den passenden Kurs.</p>
-    <form class="cta-form reveal" id="bookingForm" novalidate>
+    <!-- Access Key unter https://web3forms.com/ erstellen und unten eintragen -->
+    <form class="cta-form reveal" id="bookingForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+      <input type="hidden" name="access_key" value="4927acbd-7129-4bb0-973a-c8e8c6b42828">
+      <input type="hidden" name="subject" value="Neue Beratungsanfrage — Data School">
+      <input type="hidden" name="from_name" value="Data School Website">
+      <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
       <input type="text" name="vorname" placeholder="Vorname" autocomplete="given-name" required>
       <input type="email" name="email" placeholder="E-Mail-Adresse" autocomplete="email" required>
       <input type="tel" name="telefon" placeholder="Telefonnummer (optional)" autocomplete="tel">
@@ -1459,7 +1476,8 @@
           <option value="unternehmen">Unternehmen</option>
         </select>
       </div>
-      <button type="submit" class="btn-primary">Jetzt Beratungsgespräch anfragen</button>
+      <button type="submit" class="btn-primary" id="formSubmitBtn">Jetzt Beratungsgespräch anfragen</button>
+      <p class="cta-form-error" id="formError" role="alert"></p>
       <p class="cta-fineprint">Kostenlos &amp; unverbindlich. Kein Spam. Datenschutz garantiert.</p>
     </form>
     <div class="cta-success" id="formSuccess">
@@ -1648,20 +1666,56 @@
     statusSelect.classList.toggle('filled', !!statusSelect.value);
   });
 
-  /* ---------- Booking form ---------- */
+  /* ---------- Booking form (Web3Forms) ---------- */
   var form = document.getElementById('bookingForm');
   var success = document.getElementById('formSuccess');
+  var formError = document.getElementById('formError');
+  var submitBtn = document.getElementById('formSubmitBtn');
+  var submitBtnLabel = submitBtn.textContent;
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     if (!form.checkValidity()) {
       form.reportValidity();
       return;
     }
-    form.style.display = 'none';
-    success.style.display = 'block';
-    if (window.gsap) {
-      gsap.from(success, { y: 24, opacity: 0, duration: 0.7, ease: 'power3.out' });
-    }
+
+    formError.style.display = 'none';
+    formError.textContent = '';
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Wird gesendet…';
+
+    var payload = Object.fromEntries(new FormData(form));
+
+    fetch(form.action, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    })
+      .then(function (response) {
+        return response.json().then(function (data) {
+          if (response.ok && data.success) {
+            form.style.display = 'none';
+            success.style.display = 'block';
+            if (window.gsap) {
+              gsap.from(success, { y: 24, opacity: 0, duration: 0.7, ease: 'power3.out' });
+            }
+          } else {
+            throw new Error(data.message || 'Die Anfrage konnte nicht gesendet werden.');
+          }
+        });
+      })
+      .catch(function (err) {
+        formError.textContent = err.message || 'Etwas ist schiefgelaufen. Bitte versuche es erneut oder schreib uns direkt per E-Mail.';
+        formError.style.display = 'block';
+      })
+      .finally(function () {
+        submitBtn.disabled = false;
+        submitBtn.textContent = submitBtnLabel;
+      });
   });
 })();
 </script>
