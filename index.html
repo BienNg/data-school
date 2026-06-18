@@ -8,8 +8,8 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Data School — Künstliche Intelligenz lernen. Kostenlos.</title>
-<meta name="description" content="KI- und Daten-Weiterbildung mit Bildungsgutschein, Jobcenter-Förderung oder Qualifizierungschancengesetz. Werde Data Analyst, Data Scientist oder Data Engineer — 100% förderbar. Jetzt kostenloses Beratungsgespräch buchen.">
+<title>Data School — Data und KI Weiterbildung. Kostenlos. Mit Job-Perspektive.</title>
+<meta name="description" content="Data und KI Weiterbildung: Werde Data Analyst, Data Scientist oder Data Engineer — 100% förderbar über Bildungsgutschein (Bundesagentur für Arbeit, Jobcenter). 100% remote, mit klaren Job-Perspektiven bei führenden Tech-Unternehmen. Jetzt kostenlos beraten lassen.">
 <link rel="canonical" href="https://data-school.de/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1014,6 +1014,338 @@
     .btn-primary, .scroll-indicator { animation: none; }
     * { transition-duration: 0.01ms !important; }
   }
+
+  /* ============ LOGO PLACEHOLDERS ============ */
+  /* Generic placeholder for partner / certification logos.
+     Replace each .logo-ph with an <img> when the real asset is available. */
+  .logo-ph {
+    background: var(--white);
+    border: 1px solid rgba(29,29,31,0.08);
+    border-radius: 14px;
+    padding: 10px 18px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    min-width: 130px;
+    height: 64px;
+    text-align: center;
+    line-height: 1.1;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .logo-ph:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(29,29,31,0.08); }
+  .logo-ph strong {
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    color: var(--text);
+  }
+  .logo-ph small {
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-light);
+  }
+  .logo-ph[data-brand="ba"] strong { color: #d50029; }
+  .logo-ph[data-brand="powerbi"] strong { color: #c8a200; }
+  .logo-ph[data-brand="microsoft"] strong { color: #5e5e62; }
+  .logo-ph[data-brand="jobcenter"] strong { color: #d50029; }
+
+  /* Dark hero variant */
+  .logo-ph.on-dark {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.12);
+    box-shadow: none;
+    height: 56px;
+    min-width: 110px;
+    padding: 8px 16px;
+  }
+  .logo-ph.on-dark strong { color: rgba(255,255,255,0.92); font-size: 13.5px; }
+  .logo-ph.on-dark small { color: rgba(255,255,255,0.5); font-size: 8.5px; }
+  .logo-ph.on-dark:hover { background: rgba(255,255,255,0.1); }
+
+  /* ============ HERO LOGO STRIP & STATS ============ */
+  .hero-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 40px;
+  }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 56px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+  }
+  .hero-stat .num {
+    font-size: clamp(30px, 4vw, 40px);
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .hero-stat .num .plus { color: var(--orange); }
+  .hero-stat .lbl {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-top: 6px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  /* ============ EMPLOYERS SECTION ============ */
+  .employers {
+    background: linear-gradient(180deg, #FFE7CF 0%, #FFD4AA 100%);
+    padding: 80px 24px 88px;
+    text-align: center;
+  }
+  .employers h2 {
+    font-size: clamp(26px, 3.8vw, 40px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+  .employers-sub {
+    font-size: clamp(16px, 2vw, 19px);
+    color: var(--text);
+    margin: 0 auto 44px;
+    max-width: 720px;
+  }
+  .employers-sub strong { font-weight: 800; color: #C25A0E; }
+  .employer-logos {
+    max-width: 1100px;
+    margin: 0 auto;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+  }
+  .employer-logos-track {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: max-content;
+    flex-wrap: nowrap;
+    animation: employerMarquee 42s linear infinite;
+  }
+  .employer-logos-track:hover {
+    animation-play-state: paused;
+  }
+  @keyframes employerMarquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-50% - 10px)); }
+  }
+  .employer-logo {
+    flex: 0 0 auto;
+    background: rgba(255,255,255,0.65);
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 14px;
+    padding: 20px 36px;
+    height: 110px;
+    min-width: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: grayscale(0.35);
+    opacity: 0.88;
+    transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .employer-logo img {
+    display: block;
+    max-height: 64px;
+    max-width: 200px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+  .employer-logo:hover {
+    filter: grayscale(0);
+    opacity: 1;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(29,29,31,0.1);
+  }
+  .employer-note {
+    margin-top: 32px;
+    font-size: 12.5px;
+    color: rgba(29,29,31,0.55);
+    font-style: italic;
+  }
+
+  /* ============ CAREER STATS ============ */
+  .career-stats { background: var(--white); padding: 100px 24px; }
+  .career-stats-head { text-align: center; max-width: 720px; margin: 0 auto 56px; }
+  .career-stats-head .section-overline { color: var(--orange); }
+  .career-stats-head h2 {
+    font-size: clamp(28px, 4.2vw, 46px);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    color: var(--text);
+  }
+  .career-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .career-stat .num {
+    font-size: clamp(38px, 5.4vw, 60px);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: var(--text);
+    line-height: 1;
+  }
+  .career-stat .num .unit {
+    font-size: 0.6em;
+    font-weight: 700;
+    color: var(--orange);
+    margin-left: 2px;
+  }
+  .career-stat .lbl {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-top: 14px;
+    line-height: 1.45;
+  }
+  .career-stats-source {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-light);
+    margin-top: 40px;
+  }
+
+  /* ============ WHATSAPP STORY MOCKUPS ============ */
+  .stories.wa { background: var(--gray-bg); }
+  .wa-card {
+    background: #ECE5DD;
+    background-image:
+      radial-gradient(circle at 18% 22%, rgba(255,255,255,0.55), transparent 38%),
+      radial-gradient(circle at 82% 78%, rgba(255,255,255,0.35), transparent 42%);
+    border-radius: var(--radius-card);
+    padding: 0 0 22px;
+    box-shadow: 0 2px 14px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .wa-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 48px rgba(29,29,31,0.12);
+  }
+  .wa-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #075E54;
+    color: white;
+    padding: 14px 20px;
+  }
+  .wa-avatar {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: var(--orange);
+    color: var(--dark);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .wa-name { font-size: 14.5px; font-weight: 600; line-height: 1.2; }
+  .wa-status { font-size: 11.5px; opacity: 0.78; line-height: 1.2; }
+  .wa-thread {
+    padding: 18px 18px 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 200px;
+  }
+  .wa-bubble {
+    position: relative;
+    padding: 8px 12px 18px;
+    font-size: 14px;
+    line-height: 1.45;
+    color: #1d1d1f;
+    border-radius: 12px;
+    max-width: 85%;
+    box-shadow: 0 1px 0.5px rgba(0,0,0,0.13);
+    word-wrap: break-word;
+  }
+  .wa-bubble.me {
+    background: #DCF8C6;
+    align-self: flex-end;
+    border-radius: 12px 12px 4px 12px;
+  }
+  .wa-bubble.them {
+    background: #FFFFFF;
+    align-self: flex-start;
+    border-radius: 12px 12px 12px 4px;
+  }
+  .wa-time {
+    position: absolute;
+    bottom: 4px;
+    right: 8px;
+    font-size: 10px;
+    color: rgba(0,0,0,0.45);
+    font-weight: 500;
+  }
+  .wa-bubble.me .wa-time::after {
+    content: ' ✓✓';
+    color: #4FC3F7;
+  }
+  .wa-meta {
+    margin: 18px 22px 0;
+    padding-top: 14px;
+    border-top: 1px solid rgba(0,0,0,0.08);
+    font-size: 13px;
+    color: rgba(0,0,0,0.6);
+    line-height: 1.4;
+  }
+  .wa-meta strong { color: rgba(0,0,0,0.85); display: block; font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+  .wa-placeholder-note {
+    text-align: center;
+    margin: 32px auto 0;
+    max-width: 680px;
+    font-size: 13px;
+    color: var(--text-light);
+    font-style: italic;
+  }
+
+  /* ============ RESPONSIVE: NEW SECTIONS ============ */
+  @media (max-width: 980px) {
+    .career-stats-grid { grid-template-columns: 1fr 1fr; gap: 40px 24px; }
+    .hero-stats { gap: 40px; }
+    .employer-logo { min-width: 180px; padding: 18px 28px; height: 92px; }
+    .employer-logo img { max-height: 52px; max-width: 170px; }
+    .employer-logos-track { animation-duration: 36s; }
+  }
+  @media (max-width: 600px) {
+    .career-stats-grid { grid-template-columns: 1fr 1fr; gap: 36px 16px; }
+    .hero-stats { gap: 28px; margin-top: 28px; }
+    .hero-stat .num { font-size: 28px; }
+    .hero-stat .lbl { font-size: 11px; letter-spacing: 0.1em; }
+    .hero-logos { gap: 10px; margin-top: 32px; }
+    .logo-ph { min-width: 110px; height: 56px; padding: 8px 14px; }
+    .logo-ph strong { font-size: 13.5px; }
+    .employers { padding: 64px 20px; }
+    .employer-logos { gap: 14px; }
+    .employer-logo { min-width: 150px; height: 76px; padding: 14px 22px; }
+    .employer-logo img { max-height: 44px; max-width: 140px; }
+    .employer-logos-track { animation-duration: 30s; gap: 14px; }
+    .career-stats { padding: 72px 20px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .employer-logos-track { animation: none; }
+  }
 </style>
 </head>
 <body>
@@ -1070,20 +1402,39 @@
 <section class="hero" id="hero">
   <canvas id="hero-canvas" aria-hidden="true"></canvas>
   <div class="hero-content">
-    <p class="hero-overline" data-hero>100&nbsp;% über Bildungsgutschein</p>
-    <h1 data-hero>Künstliche Intelligenz lernen. <span class="accent">Kostenlos.</span></h1>
-    <p class="hero-sub" data-hero>Daten und KI bestimmen die Jobs von morgen — wir bringen dich heute hinein. Mit Bildungsgutschein, Jobcenter-Förderung oder Qualifizierungschancengesetz. Schritt für Schritt, auch ohne Vorwissen.</p>
+    <p class="hero-overline" data-hero>Data &amp; KI Weiterbildung · 100&nbsp;% förderbar</p>
+    <h1 data-hero>Data und KI Weiterbildung. <span class="accent">Kostenlos.</span></h1>
+    <p class="hero-sub" data-hero>Werde Data Analyst, Data Scientist oder Data Engineer — mit Bildungsgutschein komplett kostenlos. Klare Job-Perspektiven bei führenden Tech-Unternehmen, attraktive Gehälter ab Tag&nbsp;1.</p>
     <div data-hero>
-      <a href="#beratung" class="btn-primary">Kostenloses Beratungsgespräch buchen&nbsp;→</a>
+      <a href="#beratung" class="btn-primary">Kostenlose Beratung buchen&nbsp;→</a>
     </div>
     <div data-hero>
       <a href="#beratung" class="hero-secondary">Bin ich förderberechtigt? Jetzt prüfen</a>
     </div>
-    <div data-hero>
-      <p class="hero-reassure">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#ED7117" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Für Arbeitssuchende &amp; von Arbeitslosigkeit Bedrohte komplett kostenfrei
-      </p>
+
+    <!-- Logo-Strip: Förderpartner & Zertifikate (Platzhalter — durch echte Logos ersetzen) -->
+    <div class="hero-logos" data-hero aria-label="Unsere Partner und Zertifizierungen">
+      <div class="logo-ph on-dark" data-brand="ba" title="Bundesagentur für Arbeit">
+        <strong>Agentur f. Arbeit</strong><small>Bildungsgutschein</small>
+      </div>
+      <div class="logo-ph on-dark" data-brand="powerbi" title="Microsoft Power BI">
+        <strong>Power BI</strong><small>Microsoft</small>
+      </div>
+    </div>
+
+    <div class="hero-stats" data-hero>
+      <div class="hero-stat">
+        <div class="num">370<span class="plus">+</span></div>
+        <div class="lbl">Absolventen</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">13<span class="plus">+</span></div>
+        <div class="lbl">Module</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">100<span class="plus">%</span></div>
+        <div class="lbl">Förderbar</div>
+      </div>
     </div>
   </div>
   <a href="#trust" class="scroll-indicator" aria-label="Nach unten scrollen">
@@ -1093,17 +1444,47 @@
   </a>
 </section>
 
-<!-- ============ TRUST BAR ============ -->
+<!-- ============ TRUST BAR — Förderbar über ============ -->
 <section class="trust" id="trust">
-  <p class="trust-label reveal">Förderbar über</p>
+  <p class="trust-label reveal">Förderbar über &amp; zertifiziert durch</p>
   <div class="trust-badges">
-    <span class="trust-badge reveal">Jobcenter</span>
-    <span class="trust-badge reveal">Bundesagentur für Arbeit</span>
-    <span class="trust-badge reveal">Bildungsgutschein</span>
-    <span class="trust-badge reveal">Qualifizierungschancengesetz</span>
-    <span class="trust-badge reveal">IHK- &amp; Microsoft-Zertifikate</span>
-    <span class="trust-badge reveal">100&nbsp;% Remote</span>
+    <!-- Logo-Platzhalter — durch echte Logos (PNG/SVG in /assets/logos/) ersetzen -->
+    <div class="logo-ph reveal" data-brand="ba" title="Bundesagentur für Arbeit">
+      <strong>Agentur f. Arbeit</strong><small>Bildungsgutschein</small>
+    </div>
+    <div class="logo-ph reveal" data-brand="jobcenter" title="Jobcenter">
+      <strong>Jobcenter</strong><small>Förderung</small>
+    </div>
+    <div class="logo-ph reveal" data-brand="powerbi" title="Microsoft Power BI">
+      <strong>Power BI</strong><small>Microsoft</small>
+    </div>
+    <div class="logo-ph reveal" data-brand="microsoft" title="Microsoft-Zertifizierung">
+      <strong>Microsoft</strong><small>Zertifikat</small>
+    </div>
   </div>
+</section>
+
+<!-- ============ EMPLOYERS — Arbeite bei führenden TECH-Unternehmen ============ -->
+<section class="employers" id="arbeitgeber">
+  <h2 class="reveal">Arbeite bei führenden TECH-Unternehmen</h2>
+  <p class="employers-sub reveal">Sichere dir ein Einstiegsgehalt von <strong>bis zu Ø 57.000&nbsp;€/Jahr!</strong></p>
+  <div class="employer-logos reveal" aria-label="Beispielhafte Arbeitgeber unserer Absolvent:innen">
+    <div class="employer-logos-track">
+      <div class="employer-logo"><img src="assets/logos/sap.png" alt="SAP" width="200" height="64" loading="lazy" decoding="async"></div>
+      <div class="employer-logo"><img src="assets/logos/siemens.png" alt="Siemens" width="200" height="64" loading="lazy" decoding="async"></div>
+      <div class="employer-logo"><img src="assets/logos/deutsche-bank.png" alt="Deutsche Bank" width="200" height="64" loading="lazy" decoding="async"></div>
+      <div class="employer-logo"><img src="assets/logos/allianz.png" alt="Allianz" width="200" height="64" loading="lazy" decoding="async"></div>
+      <div class="employer-logo"><img src="assets/logos/bmw.png" alt="BMW Group" width="200" height="64" loading="lazy" decoding="async"></div>
+      <div class="employer-logo"><img src="assets/logos/bosch.png" alt="Bosch" width="200" height="64" loading="lazy" decoding="async"></div>
+      <div class="employer-logo" aria-hidden="true"><img src="assets/logos/sap.png" alt="" width="200" height="64" loading="lazy" decoding="async"></div>
+      <div class="employer-logo" aria-hidden="true"><img src="assets/logos/siemens.png" alt="" width="200" height="64" loading="lazy" decoding="async"></div>
+      <div class="employer-logo" aria-hidden="true"><img src="assets/logos/deutsche-bank.png" alt="" width="200" height="64" loading="lazy" decoding="async"></div>
+      <div class="employer-logo" aria-hidden="true"><img src="assets/logos/allianz.png" alt="" width="200" height="64" loading="lazy" decoding="async"></div>
+      <div class="employer-logo" aria-hidden="true"><img src="assets/logos/bmw.png" alt="" width="200" height="64" loading="lazy" decoding="async"></div>
+      <div class="employer-logo" aria-hidden="true"><img src="assets/logos/bosch.png" alt="" width="200" height="64" loading="lazy" decoding="async"></div>
+    </div>
+  </div>
+  <p class="employer-note reveal">Beispielhafte Arbeitgeber unserer Absolvent:innen.</p>
 </section>
 
 <!-- ============ VALUE PROPS ============ -->
@@ -1146,7 +1527,7 @@
         </svg>
       </div>
       <h3>Anerkannte Zertifikate</h3>
-      <p>Du schließt mit IHK- und Microsoft-Zertifikaten ab — relevant für den Arbeitsmarkt, anerkannt von Arbeitgebern und der Agentur für Arbeit.</p>
+      <p>Du schließt mit Microsoft-Zertifikaten ab — relevant für den Arbeitsmarkt, anerkannt von Arbeitgebern und der Agentur für Arbeit.</p>
     </article>
     <article class="value-card reveal">
       <div class="value-icon" aria-hidden="true">
@@ -1234,7 +1615,7 @@
       <span class="path-badge">Beliebtester Start</span>
       <div class="path-level">Kernprogramm</div>
       <h3>Data Analyst</h3>
-      <div class="path-dur">12 Monate · IHK</div>
+      <div class="path-dur">12 Monate</div>
       <ul>
         <li>SQL &amp; Datenbanken</li>
         <li>Power BI</li>
@@ -1266,6 +1647,33 @@
     </article>
   </div>
   <p class="path-foot reveal">Nicht sicher, wo du startest? <strong>Wir finden es im Beratungsgespräch gemeinsam heraus.</strong> <a href="#beratung" style="color:#C25A0E;font-weight:600;">Termin sichern&nbsp;→</a></p>
+</section>
+
+<!-- ============ CAREER STATS — Datenanalyse lohnt sich ============ -->
+<section class="career-stats" id="karriere-stats">
+  <div class="career-stats-head reveal">
+    <p class="section-overline">Verdienst &amp; Karrierechancen</p>
+    <h2>Datenanalyse lohnt sich.</h2>
+  </div>
+  <div class="career-stats-grid">
+    <div class="career-stat reveal">
+      <div class="num">56.782<span class="unit">€</span></div>
+      <div class="lbl">Durchschnittliches Jahresgehalt</div>
+    </div>
+    <div class="career-stat reveal">
+      <div class="num">5.284<span class="unit">+</span></div>
+      <div class="lbl">Stellenausschreibungen in DE</div>
+    </div>
+    <div class="career-stat reveal">
+      <div class="num">43,5</div>
+      <div class="lbl">Durchschnittsalter Quereinsteiger</div>
+    </div>
+    <div class="career-stat reveal">
+      <div class="num">32<span class="unit">%</span></div>
+      <div class="lbl">Frauenanteil im Beruf</div>
+    </div>
+  </div>
+  <p class="career-stats-source reveal">Quellen: Glassdoor, Bundesagentur für Arbeit, eigene Erhebungen — Stand 2025.</p>
 </section>
 
 <!-- ============ COURSES ============ -->
@@ -1402,7 +1810,7 @@
       <ul class="fc-list">
         <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#ED7117" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Kostenloser Laptop für die Weiterbildung*</li>
         <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#ED7117" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Alle Software-Lizenzen inklusive</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#ED7117" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>IHK- &amp; Microsoft-Zertifikate</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#ED7117" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Microsoft-Zertifikate</li>
         <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#ED7117" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Persönliche Betreuung &amp; Praxisprojekte</li>
       </ul>
       <a href="#beratung" class="btn-primary">Jetzt Anspruch prüfen lassen</a>
@@ -1410,47 +1818,98 @@
   </div>
 </section>
 
-<!-- ============ STORIES ============ -->
-<section class="section stories" id="erfolge">
+<!-- ============ STORIES — WhatsApp-Mockups (Platzhalter für Steves WA-Screenshots) ============ -->
+<section class="section stories wa" id="erfolge">
   <div class="section-head reveal">
     <h2>Reingekommen — und drangeblieben.</h2>
-    <p>Menschen, die gezweifelt haben, ob Daten und KI etwas für sie sind — und es dann doch verstanden haben.</p>
+    <p>Echte Nachrichten aus dem Postfach unserer Absolvent:innen — Jobzusagen, erste Erfolge, Dankesnachrichten.</p>
   </div>
   <div class="stories-grid">
-    <article class="story-card reveal">
-      <p class="story-quote">„Ich hatte echt Angst vor dem Technischen. Aber durch die Beispiele aus dem Alltag hat es bei mir Stück für Stück Klick gemacht.“</p>
-      <div class="story-person">
-        <div class="story-avatar">MB</div>
-        <div class="story-meta">
-          <strong>Maria B.</strong>
-          <span>Data Analyst, Logistikbranche</span>
-          <span class="story-before">vorher: kaufm. Angestellte</span>
+    <article class="wa-card reveal">
+      <div class="wa-header">
+        <div class="wa-avatar">MB</div>
+        <div>
+          <div class="wa-name">Maria B.</div>
+          <div class="wa-status">zuletzt online vor 2 Min.</div>
         </div>
       </div>
-    </article>
-    <article class="story-card reveal">
-      <p class="story-quote">„Was ich gelernt habe, konnte ich am nächsten Tag direkt anwenden. Nichts war graue Theorie — alles kam aus der echten Praxis.“</p>
-      <div class="story-person">
-        <div class="story-avatar">TK</div>
-        <div class="story-meta">
-          <strong>Thomas K.</strong>
-          <span>Business Analyst, Finanzwesen</span>
-          <span class="story-before">vorher: arbeitssuchend</span>
+      <div class="wa-thread">
+        <div class="wa-bubble them">
+          Hi Steve! Ich muss dir was erzählen 🥹
+          <span class="wa-time">10:42</span>
+        </div>
+        <div class="wa-bubble them">
+          Ich habe heute den Job als Data Analyst bekommen! Die Weiterbildung war goldwert.
+          <span class="wa-time">10:43</span>
+        </div>
+        <div class="wa-bubble me">
+          Glückwunsch Maria! Wusste ich doch 🚀
+          <span class="wa-time">10:45</span>
         </div>
       </div>
+      <div class="wa-meta">
+        <strong>Maria B. · Data Analyst, Logistikbranche</strong>
+        vorher: kaufmännische Angestellte
+      </div>
     </article>
-    <article class="story-card reveal">
-      <p class="story-quote">„Die feste Lernstruktur war für mich entscheidend. Ich brauchte jemanden, der dranbleibt — und genau das habe ich bekommen.“</p>
-      <div class="story-person">
-        <div class="story-avatar">AL</div>
-        <div class="story-meta">
-          <strong>Aylin L.</strong>
-          <span>Data Scientist, E-Commerce</span>
-          <span class="story-before">vorher: Quereinsteigerin</span>
+
+    <article class="wa-card reveal">
+      <div class="wa-header">
+        <div class="wa-avatar">TK</div>
+        <div>
+          <div class="wa-name">Thomas K.</div>
+          <div class="wa-status">online</div>
         </div>
+      </div>
+      <div class="wa-thread">
+        <div class="wa-bubble them">
+          Steve, ich konnte das Power-BI-Dashboard heute direkt im Vorstellungsgespräch zeigen.
+          <span class="wa-time">14:12</span>
+        </div>
+        <div class="wa-bubble them">
+          Sie waren so beeindruckt, dass ich noch im Gespräch die Zusage hatte 🙌
+          <span class="wa-time">14:12</span>
+        </div>
+        <div class="wa-bubble me">
+          Mega! Genau dafür haben wir das Portfolio gebaut.
+          <span class="wa-time">14:18</span>
+        </div>
+      </div>
+      <div class="wa-meta">
+        <strong>Thomas K. · Business Analyst, Finanzwesen</strong>
+        vorher: arbeitssuchend
+      </div>
+    </article>
+
+    <article class="wa-card reveal">
+      <div class="wa-header">
+        <div class="wa-avatar">AL</div>
+        <div>
+          <div class="wa-name">Aylin L.</div>
+          <div class="wa-status">zuletzt online heute</div>
+        </div>
+      </div>
+      <div class="wa-thread">
+        <div class="wa-bubble them">
+          Ohne die feste Lernstruktur hätte ich nie durchgehalten 💪
+          <span class="wa-time">19:04</span>
+        </div>
+        <div class="wa-bubble them">
+          Habe gerade meinen ersten ML-Use-Case live gestellt — Kunden lieben es!
+          <span class="wa-time">19:05</span>
+        </div>
+        <div class="wa-bubble me">
+          Das wird der erste von vielen 👏
+          <span class="wa-time">19:11</span>
+        </div>
+      </div>
+      <div class="wa-meta">
+        <strong>Aylin L. · Data Scientist, E-Commerce</strong>
+        vorher: Quereinsteigerin
       </div>
     </article>
   </div>
+  <p class="wa-placeholder-note reveal">Platzhalter — wird durch Steves Original-WhatsApp-Screenshots ersetzt (mit Einwilligung der abgebildeten Personen, ggf. anonymisiert).</p>
 </section>
 
 <!-- ============ CTA / BOOKING ============ -->
