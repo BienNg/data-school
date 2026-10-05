@@ -10,8 +10,9 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+.legal-page {
+  min-height: 100vh;
+  font-family: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
   color: var(--text);
   background: var(--white);
   -webkit-font-smoothing: antialiased;
