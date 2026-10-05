@@ -35,6 +35,18 @@ export function isSameOrigin(req: NextRequest): boolean {
   }
 }
 
+/** Vercel sends the city percent-encoded (e.g. M%C3%BCnchen). */
+function geoCity(req: NextRequest): string | null {
+  const raw = req.headers.get('x-vercel-ip-city');
+  if (!raw) return null;
+  try {
+    const city = decodeURIComponent(raw).trim();
+    return city.slice(0, 80) || null;
+  } catch {
+    return raw.trim().slice(0, 80) || null;
+  }
+}
+
 /** Builds the `sessions` row from request headers plus the optional client context. */
 export function sessionRow(req: NextRequest, sid: string, ctx?: TrackContext) {
   const ua = req.headers.get('user-agent') ?? '';
@@ -55,6 +67,7 @@ export function sessionRow(req: NextRequest, sid: string, ctx?: TrackContext) {
     browser,
     os,
     country: req.headers.get('x-vercel-ip-country') || null,
+    city: geoCity(req),
     viewport_w: ctx?.vw ?? null,
     viewport_h: ctx?.vh ?? null,
     lang: ctx?.lang ?? null,

@@ -103,7 +103,7 @@ export default function DatenschutzPage() {
         </li>
         <li>
           Gespeichert werden: aufgerufene Seite, Herkunftsseite (ohne Parameter), Kampagnenparameter (utm_*), Gerätetyp,
-          Browser, Betriebssystem, Land, Bildschirmgröße sowie Interaktionen auf der Seite.
+          Browser, Betriebssystem, Land, Stadt, Bildschirmgröße sowie Interaktionen auf der Seite.
         </li>
       </ul>
       <p>

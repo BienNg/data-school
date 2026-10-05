@@ -96,7 +96,7 @@ The old URLs `/index.html`, `/impressum.html`, `/datenschutz.html` and `/agb.htm
 - `/admin` — KPIs vs. the previous period, daily visits and leads, the conversion funnel, scroll depth, and **"Was verbessern?"** (rule-based hints that only appear once there are ≥ 30 visits)
 - `/admin/sektionen` — reach, dwell time, clicks and "last section seen" (where non-converters leave) for each section
 - `/admin/conversion` — CTA conversion, form drop-off field by field, form errors, FAQ opens, and leads by situation and background
-- `/admin/quellen` — sessions, engagement and conversion by source, medium, campaign, referrer, device, browser, OS, country or landing page
+- `/admin/quellen` — sessions, engagement and conversion by source, medium, campaign, referrer, device, browser, OS, country, city or landing page
 - `/admin/leads` — searchable lead list with attribution, plus a CSV export (opens in German Excel)
 
 All reports are Postgres functions (`analytics_*`) that check `is_admin()`. The browser never receives raw event rows.

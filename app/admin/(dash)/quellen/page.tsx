@@ -13,6 +13,7 @@ const DIMS = [
   { key: 'browser', label: 'Browser' },
   { key: 'os', label: 'Betriebssystem' },
   { key: 'country', label: 'Land' },
+  { key: 'city', label: 'Stadt' },
   { key: 'landing', label: 'Einstiegsseite' },
 ];
 
