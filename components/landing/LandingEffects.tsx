@@ -4,9 +4,9 @@ import { useEffect } from 'react';
 import { initTracker } from '@/lib/analytics/tracker';
 
 /** Elements that fade up on their own. */
-const SINGLES = ['.section-head', '.band h2', '.life-wrap','.mentor-card', '.cta-card', '.footer-banner'];
+const SINGLES = ['.section-head', '.band h2', '.life-wrap', '.mentor-card', '.cta-card', '.footer-banner'];
 
-/** Containers whose children arrive one after another (stagger capped so long lists don't drag). */
+/** Containers whose children arrive one after another. */
 const GROUPS = [
   '.qual-grid',
   '.audience-grid',
@@ -19,7 +19,11 @@ const GROUPS = [
   '.faq-layout',
 ];
 
-const MAX_STAGGER = 5;
+/** Shrinking gaps (50, 40, 30, 20ms) so a group reads as one motion and ends sooner; later items share the last slot. */
+const STAGGER_MS = [0, 50, 90, 120, 140];
+
+/** Longest reveal: 600ms transition + 140ms stagger, plus headroom. After this the reveal attributes are removed. */
+const CLEANUP_MS = 900;
 
 /** Cookieless page analytics + one-time scroll reveals. */
 export function LandingEffects() {
@@ -28,15 +32,30 @@ export function LandingEffects() {
   useEffect(() => {
     if (!('IntersectionObserver' in window)) return;
 
+    const timers = new Set<number>();
+
+    // Once revealed, drop every trace so the reveal transition and delay never leak into later state changes.
+    const cleanup = (el: Element) => {
+      const id = window.setTimeout(() => {
+        timers.delete(id);
+        for (const child of Array.from(el.children)) (child as HTMLElement).style.removeProperty('--d');
+        el.removeAttribute('data-reveal');
+        el.removeAttribute('data-reveal-group');
+        el.removeAttribute('data-shown');
+      }, CLEANUP_MS);
+      timers.add(id);
+    };
+
     const io = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           if (!entry.isIntersecting) continue;
           entry.target.setAttribute('data-shown', '');
           io.unobserve(entry.target);
+          cleanup(entry.target);
         }
       },
-      { rootMargin: '0px 0px -12% 0px' },
+      { rootMargin: '0px 0px -5% 0px' },
     );
 
     // Only tag what starts below the fold — anything already visible stays untouched, so it never flickers.
@@ -51,13 +70,17 @@ export function LandingEffects() {
     document.querySelectorAll<HTMLElement>(GROUPS.join(',')).forEach((el) => {
       if (!belowFold(el)) return;
       Array.from(el.children).forEach((child, i) => {
-        (child as HTMLElement).style.setProperty('--i', String(Math.min(i, MAX_STAGGER)));
+        const ms = STAGGER_MS[Math.min(i, STAGGER_MS.length - 1)];
+        (child as HTMLElement).style.setProperty('--d', `${ms}ms`);
       });
       el.setAttribute('data-reveal-group', '');
       io.observe(el);
     });
 
-    return () => io.disconnect();
+    return () => {
+      io.disconnect();
+      timers.forEach((id) => window.clearTimeout(id));
+    };
   }, []);
 
   return null;
