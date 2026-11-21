@@ -45,7 +45,7 @@ export function Nav() {
           </button>
         </div>
       </header>
-      <div className={`mobile-menu${open ? ' open' : ''}`} onClick={(e) => (e.target as HTMLElement).closest('a') && setOpen(false)}>
+      <div className={`mobile-menu${open ? ' open' : ''}`} aria-hidden={!open} onClick={(e) => (e.target as HTMLElement).closest('a') && setOpen(false)}>
         {LINKS.map((l) => (
           <a key={l.href} href={l.href} data-track={`mobile_nav_link_${l.href.slice(1)}`}>
             {l.label}
