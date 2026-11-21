@@ -65,7 +65,7 @@ export function Footer() {
           </div>
         </div>
         <div className="footer-bottom">
-          <span>© 2026 DATASCHOOL Academy GmbH. Alle Rechte vorbehalten.</span>
+          <span>© 2026 SCHWABEO GmbH. Alle Rechte vorbehalten.</span>
           <span>Zertifizierte Weiterbildungsprogramme</span>
         </div>
       </div>
