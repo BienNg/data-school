@@ -10,6 +10,8 @@
   --shadow: 0 1px 1px rgba(0, 0, 0, 0.04), 0 12px 32px rgba(0, 0, 0, 0.06);
   --header: 52px;
   --font-ui: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -89,11 +91,11 @@ h1, h2, .way-title, .summary-card h3, .step-card h3, .persona h3, .path-card h3,
   font-size: 15px;
   letter-spacing: -0.01em;
   border: 1px solid transparent;
-  transition: transform 100ms ease-out, background-color 120ms ease-out;
+  transition: transform 160ms var(--ease-out), background-color 150ms ease;
 }
 .btn:active { transform: scale(0.97); }
 .btn-primary { background: var(--orange); color: #fff; }
-.btn-primary:hover { background: #ff851f; }
+@media (hover: hover) and (pointer: fine) { .btn-primary:hover { background: #ff851f; } }
 .btn-ghost {
   background: rgba(255, 255, 255, 0.72);
   color: var(--ink);
@@ -163,7 +165,7 @@ h1, h2, .way-title, .summary-card h3, .step-card h3, .persona h3, .path-card h3,
   letter-spacing: -0.01em;
   padding: 8px 16px;
   border-radius: 980px;
-  transition: transform 100ms ease-out, background-color 120ms ease-out;
+  transition: transform 160ms var(--ease-out), background-color 150ms ease;
 }
 .nav-inner > .nav-cta:active { transform: scale(0.97); }
 .nav-burger {
@@ -199,7 +201,7 @@ h1, h2, .way-title, .summary-card h3, .step-card h3, .persona h3, .path-card h3,
   visibility: hidden;
   transform: translateY(-8px);
   pointer-events: none;
-  transition: opacity 220ms ease-out, transform 220ms ease-out, visibility 220ms ease-out;
+  transition: opacity 220ms var(--ease-out), transform 220ms var(--ease-out), visibility 220ms;
 }
 .mobile-menu.open {
   opacity: 1;
@@ -495,7 +497,7 @@ h1, h2, .way-title, .summary-card h3, .step-card h3, .persona h3, .path-card h3,
 .path-card.dark .path-btn { background: var(--orange); color: #fff; }
 .paths-nav { display: flex; align-items: center; justify-content: space-between; margin-top: 18px; }
 .dots { display: flex; gap: 8px; align-items: center; }
-.dot { width: 8px; height: 8px; border: 0; border-radius: 99px; background: #d2d2d7; padding: 0; transition: transform 100ms ease-out, background-color 120ms ease-out; }
+.dot { width: 8px; height: 8px; border: 0; border-radius: 99px; background: #d2d2d7; padding: 0; transition: transform 160ms var(--ease-out), background-color 150ms ease; }
 .dot:active { transform: scale(0.92); }
 .dot.on { width: 22px; background: var(--orange); }
 .arrows { display: flex; gap: 8px; }
@@ -508,7 +510,7 @@ h1, h2, .way-title, .summary-card h3, .step-card h3, .persona h3, .path-card h3,
   display: grid; place-items: center;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
   backdrop-filter: blur(12px);
-  transition: transform 100ms ease-out, background-color 120ms ease-out;
+  transition: transform 160ms var(--ease-out), background-color 150ms ease;
 }
 .arrow:active { transform: scale(0.97); }
 .arrow svg { width: 18px; height: 18px; }
@@ -554,7 +556,7 @@ h1, h2, .way-title, .summary-card h3, .step-card h3, .persona h3, .path-card h3,
   font-size: 14px;
   letter-spacing: -0.01em;
   white-space: nowrap;
-  transition: transform 100ms ease-out, background-color 120ms ease-out;
+  transition: transform 160ms var(--ease-out), background-color 150ms ease;
 }
 .mod-tabs button:active { transform: scale(0.97); }
 .mod-tabs button.on { background: var(--orange); border-color: var(--orange); color: #fff; }
@@ -790,7 +792,7 @@ h1, h2, .way-title, .summary-card h3, .step-card h3, .persona h3, .path-card h3,
 }
 .faq-item summary:active { background: rgba(0, 0, 0, 0.04); }
 .faq-item summary::-webkit-details-marker { display: none; }
-.chev { width: 18px; height: 18px; flex: none; color: #86868b; transition: transform 220ms ease-out; }
+.chev { width: 18px; height: 18px; flex: none; color: #86868b; transition: transform 200ms var(--ease-out); }
 .faq-item[open] .chev { transform: rotate(180deg); }
 .faq-item p { padding: 0 18px 16px; color: var(--muted); line-height: 1.55; }
 .summary-card {
@@ -886,4 +888,75 @@ h1, h2, .way-title, .summary-card h3, .step-card h3, .persona h3, .path-card h3,
   .logo-row { grid-template-columns: 1fr 1fr; }
   .player-time { text-align: left; }
   .euro { font-size: 60px; }
+}
+
+/* ───────────── Motion ─────────────
+   Marketing page, seen occasionally: entrances and one-time reveals are allowed here.
+   Only transform + opacity move. Everything stays readable without JS. */
+
+/* Hero entrance — CSS animation so it stays smooth while the page is still loading. */
+@keyframes rise {
+  from { opacity: 0; transform: translate3d(0, 16px, 0); }
+}
+@keyframes settle {
+  from { opacity: 0; transform: scale(0.97); }
+}
+@keyframes fade {
+  from { opacity: 0; }
+}
+.hero-copy > * { animation: rise 700ms var(--ease-out) both; }
+.hero-copy > :nth-child(2) { animation-delay: 60ms; }
+.hero-copy > :nth-child(3) { animation-delay: 120ms; }
+.hero-copy > :nth-child(4) { animation-delay: 170ms; }
+.hero-copy > :nth-child(5) { animation-delay: 210ms; }
+.hero-photo { animation: settle 900ms var(--ease-out) 100ms both; }
+
+/* Scroll reveal — LandingEffects only tags elements that start below the fold,
+   so nothing already on screen ever disappears. Fires once. */
+[data-reveal],
+[data-reveal-group] > * {
+  transition:
+    opacity 600ms var(--ease-out),
+    transform 600ms var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 70ms);
+}
+[data-reveal]:not([data-shown]),
+[data-reveal-group]:not([data-shown]) > * {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+}
+
+/* Steps: the connecting line draws downward as the cards arrive. */
+.timeline::before {
+  transform-origin: top;
+  transition: transform 900ms var(--ease-in-out) 150ms;
+}
+.timeline[data-reveal-group]:not([data-shown])::before { transform: scaleY(0); }
+
+/* Module tabs: new content fades in instead of teleporting; the panel frame stays put. */
+.mod-body {
+  transition:
+    opacity 200ms var(--ease-out),
+    transform 200ms var(--ease-out);
+  @starting-style {
+    opacity: 0;
+    transform: translate3d(0, 6px, 0);
+  }
+}
+
+/* FAQ: the answer eases in on open; closing is instant, so nothing is ever interrupted mid-play. */
+@keyframes answer-in {
+  from { opacity: 0; transform: translate3d(0, -4px, 0); }
+}
+.faq-item[open] p { animation: answer-in 200ms var(--ease-out); }
+
+@media (prefers-reduced-motion: reduce) {
+  /* Fewer and gentler: keep the fades, drop every movement. */
+  .hero-copy > *, .hero-photo { animation-name: fade; }
+  [data-reveal]:not([data-shown]),
+  [data-reveal-group]:not([data-shown]) > * { transform: none; }
+  .timeline::before { transition: none; }
+  .timeline[data-reveal-group]:not([data-shown])::before { transform: none; }
+  .mod-body { @starting-style { transform: none; } }
+  .faq-item[open] p { animation-name: fade; }
 }

@@ -218,6 +218,7 @@ export function ProgramDetail() {
           ))}
         </div>
         <div className="mod-panel" role="tabpanel">
+          <div className="mod-body" key={mod.id}>
           <div className="mod-top">
             <span className="mod-num">{mod.num}</span>
             {mod.when && <span className="mod-when">{mod.when}</span>}
@@ -258,6 +259,7 @@ export function ProgramDetail() {
               </p>
             </div>
           )}
+          </div>
         </div>
       </div>
     </section>
