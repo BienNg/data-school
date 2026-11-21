@@ -1,6 +1,8 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
+  // Next otherwise writes AGENTS.md / CLAUDE.md into the repo on dev start.
+  agentRules: false,
   // Keep old GitHub-Pages URLs working after the move to Vercel.
   async redirects() {
     return [

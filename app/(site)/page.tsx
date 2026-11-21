@@ -1,14 +1,18 @@
 import type { Metadata } from 'next';
 import { Nav } from '@/components/landing/Nav';
 import { Hero } from '@/components/landing/Hero';
-import { Employers, Trust } from '@/components/landing/Proof';
-import { Quereinstieg, Situation } from '@/components/landing/Positioning';
-import { CareerPath, CareerStats, Program, Steps } from '@/components/landing/Offer';
-import { Funding, Method, ValueProps } from '@/components/landing/Why';
-import { Stories } from '@/components/landing/Stories';
-import { CompactCourses } from '@/components/landing/Courses';
-import { Faq } from '@/components/landing/Faq';
+import { Qualifications } from '@/components/landing/Qualifications';
+import { Audience } from '@/components/landing/Audience';
+import { Market } from '@/components/landing/Market';
+import { DailyLife } from '@/components/landing/DailyLife';
+import { Paths } from '@/components/landing/Paths';
+import { ProgramDetail } from '@/components/landing/ProgramDetail';
+import { Employers } from '@/components/landing/Employers';
 import { CheckForm } from '@/components/landing/CheckForm';
+import { Mentors } from '@/components/landing/Mentors';
+import { Funding } from '@/components/landing/Funding';
+import { Steps } from '@/components/landing/Steps';
+import { Faq } from '@/components/landing/Faq';
 import { Footer } from '@/components/landing/Footer';
 import { LandingEffects } from '@/components/landing/LandingEffects';
 import './landing.css';
@@ -20,40 +24,34 @@ export const metadata: Metadata = {
     locale: 'de_DE',
     url: 'https://data-school.de/',
     siteName: 'Data School',
-    title: 'Data School — Deine Erfahrung. Neue Data-Skills. Deine nächste Karriere.',
+    title: 'Data School — Die Weiterbildung in Data & KI',
     description:
-      'Quereinstieg in Data Analytics: 100 % online, praxisnah, persönlich begleitet — mit Bildungsgutschein kostenlos.',
+      'Weiterbildung in Data & KI mit Praxisprojekten auf GitHub, Zertifikaten und möglicher Kostenübernahme über den Bildungsgutschein.',
   },
 };
 
-// Section order mirrors lib/sections.ts (used by the analytics dashboard).
 export default function LandingPage() {
   return (
-    <>
-      <noscript>
-        <style>{'.reveal{opacity:1!important}'}</style>
-      </noscript>
+    <div className="landing">
       <Nav />
       <main>
         <Hero />
-        <Trust />
+        <Qualifications />
+        <Audience />
+        <Market />
+        <DailyLife />
+        <Paths />
+        <ProgramDetail />
         <Employers />
-        <Situation />
-        <Quereinstieg />
-        <CareerPath />
-        <Steps />
-        <Program />
-        <CareerStats />
-        <ValueProps />
-        <Method />
+        <CheckForm id="beratung" />
+        <Mentors />
         <Funding />
-        <Stories />
-        <CompactCourses />
+        <Steps />
         <Faq />
-        <CheckForm />
+        <CheckForm id="beratung-unten" />
       </main>
       <Footer />
       <LandingEffects />
-    </>
+    </div>
   );
 }

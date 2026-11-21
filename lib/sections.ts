@@ -2,21 +2,19 @@
 // The tracker reports `section` by these ids; the dashboard uses the labels and order.
 export const SECTIONS = [
   { id: 'hero', label: 'Hero' },
-  { id: 'trust', label: 'Förderbar über' },
+  { id: 'qualifikationen', label: 'Förderung & Qualifikationen' },
+  { id: 'zielgruppe', label: 'Für wen ist das Programm?' },
+  { id: 'markt', label: 'Marktperspektive' },
+  { id: 'vorteile', label: 'Dein neuer Berufsalltag' },
+  { id: 'programm', label: 'Qualifizierungspfade' },
+  { id: 'lehrplan', label: 'Lehrplan' },
   { id: 'arbeitgeber', label: 'Arbeitgeber' },
-  { id: 'situation', label: 'Kommt dir das bekannt vor?' },
-  { id: 'quereinstieg', label: 'Du fängst nicht bei null an' },
-  { id: 'kurse', label: 'Kurse / Karrierepfad' },
-  { id: 'ablauf', label: 'Dein Weg in 4 Schritten' },
-  { id: 'programm', label: 'Karriereprogramm' },
-  { id: 'karriere-stats', label: 'Datenanalyse lohnt sich' },
-  { id: 'ueber-uns', label: 'Warum Data School?' },
-  { id: 'methode', label: 'Methode' },
-  { id: 'foerderung', label: 'Förderung' },
-  { id: 'erfolge', label: 'Erfolgsgeschichten' },
-  { id: 'kompaktkurse', label: 'Kompakte KI-Kurse' },
-  { id: 'faq', label: 'FAQ' },
   { id: 'beratung', label: 'Karriere-Check (Formular)' },
+  { id: 'dozenten', label: 'Dozenten' },
+  { id: 'foerderung', label: 'Förderung' },
+  { id: 'ablauf', label: 'In 4 Schritten' },
+  { id: 'faq', label: 'FAQ' },
+  { id: 'beratung-unten', label: 'Karriere-Check (zweiter Block)' },
 ] as const;
 
 export type SectionId = (typeof SECTIONS)[number]['id'];
@@ -44,6 +42,16 @@ export const BEREICH_OPTIONS = [
   { value: 'logistik', label: 'Logistik / Einkauf' },
   { value: 'it', label: 'IT / Technik' },
   { value: 'sonstiges', label: 'Sonstiges' },
+  { value: 'gutschein_ja', label: 'Bildungsgutschein: Ja' },
+  { value: 'gutschein_nein', label: 'Bildungsgutschein: Nein' },
+  { value: 'gutschein_beantragung', label: 'Bildungsgutschein: in Beantragung' },
+] as const;
+
+/** Options shown on the redesigned Karriere-Check form. Values stay inside BEREICH_OPTIONS so the existing lead API accepts them. */
+export const GUTSCHEIN_OPTIONS = [
+  { value: 'gutschein_ja', label: 'Ja' },
+  { value: 'gutschein_nein', label: 'Nein' },
+  { value: 'gutschein_beantragung', label: 'In Beantragung' },
 ] as const;
 
 export function labelFor(list: readonly { value: string; label: string }[], value: string | null | undefined) {

@@ -1,32 +1,25 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { DataMark, Wordmark } from '@/components/DataMark';
 
 const LINKS = [
-  { href: '#kurse', label: 'Kurse' },
   { href: '#programm', label: 'Programm' },
+  { href: '#vorteile', label: 'Vorteile' },
+  { href: '#dozenten', label: 'Dozenten' },
+  { href: '#lehrplan', label: 'Lehrplan' },
   { href: '#foerderung', label: 'Förderung' },
-  { href: '#erfolge', label: 'Erfolge' },
   { href: '#faq', label: 'FAQ' },
 ];
 
 export function Nav() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   return (
     <>
-      <header className={`nav${scrolled ? ' scrolled' : ''}`} id="nav">
+      <header className="nav" id="nav">
         <div className="nav-inner">
-          <a href="#" className="nav-logo" aria-label="Data School — Startseite">
+          <a href="#hero" className="nav-logo" aria-label="Data School — Startseite" onClick={() => setOpen(false)}>
             <DataMark />
             <Wordmark />
           </a>
@@ -59,7 +52,7 @@ export function Nav() {
           </a>
         ))}
         <a href="#beratung" className="nav-cta" data-track="mobile_nav_cta">
-          Kostenlosen Karriere-Check starten
+          Karriere-Check
         </a>
       </div>
     </>

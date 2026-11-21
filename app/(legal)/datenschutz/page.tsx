@@ -86,7 +86,7 @@ export default function DatenschutzPage() {
         spätestens 14 Monaten automatisch gelöscht.
       </p>
 
-      <h2>7. Reichweitenmessung ohne Cookies</h2>
+      <h2 id="cookies">7. Reichweitenmessung ohne Cookies</h2>
       <p>
         Um unsere Website zu verbessern, messen wir, wie sie genutzt wird — z.&nbsp;B. welche Abschnitte angesehen,
         welche Schaltflächen geklickt und wie weit gescrollt wird. Dafür setzen wir ein eigenes, datensparsames Verfahren ein:

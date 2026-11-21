@@ -37,27 +37,54 @@ export const FAQ = [
   },
 ];
 
+const PERKS = [
+  '100% Kostenübernahme durch Bundesagentur für Arbeit & Jobcenter möglich',
+  '7 vorzeigbare Praxisprojekte für dein persönliches Github-Portfolio',
+  '6 international gültige Zertifikate von Microsoft bis Scrum.org',
+  '1-on-1 Karriere-Coaching & Vorbereitung auf Vorstellungsgespräche',
+  'Flexibler Start – Vollzeit oder Teilzeit',
+];
+
 export function Faq() {
   return (
     <section className="section faq" id="faq">
-      <div className="section-head reveal">
-        <p className="section-overline">Häufige Fragen</p>
-        <h2>Was du vor deinem Quereinstieg wissen solltest.</h2>
+      <div className="wrap faq-layout">
+        <div>
+          <p className="badge">
+            <span className="badge-dot" />
+            Häufige Fragen
+          </p>
+          <h2>Alles, was du vor dem Start wissen musst</h2>
+          <div className="faq-list">
+            {FAQ.map((item) => (
+              <details key={item.id} className="faq-item" data-faq={item.id}>
+                <summary>
+                  {item.q}
+                  <svg className="chev" viewBox="0 0 20 20" aria-hidden="true">
+                    <path d="M5 7.5 10 12.5 15 7.5" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </summary>
+                <p>{item.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+        <aside className="summary-card">
+          <p className="summary-kicker">Zusammenfassung</p>
+          <h3>Deine Vorteile auf einen Blick</h3>
+          <ul>
+            {PERKS.map((perk) => (
+              <li key={perk}>
+                <span aria-hidden="true">✓</span>
+                {perk}
+              </li>
+            ))}
+          </ul>
+          <a href="#beratung" className="btn btn-primary btn-block" data-track="faq_cta">
+            Jetzt Platz sichern &amp; durchstarten
+          </a>
+        </aside>
       </div>
-      <div className="faq-list reveal">
-        {FAQ.map((f) => (
-          <details key={f.id} className="faq-item" data-faq={f.id}>
-            <summary>{f.q}</summary>
-            <p>{f.a}</p>
-          </details>
-        ))}
-      </div>
-      <p className="faq-foot reveal">
-        Deine Frage ist nicht dabei?{' '}
-        <a href="#beratung" data-track="faq_cta">
-          Stell sie uns im kostenlosen Karriere-Check&nbsp;→
-        </a>
-      </p>
     </section>
   );
 }
